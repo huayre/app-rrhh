@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>mnmnmnm</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
-<h1>Anibal Diaz</h1>
-<h1>Roy Carlos Huayre Bujaico</h1>
-<h1>modificado por raquel</h1>
-
+ LOGIN
 </body>
 </html>
