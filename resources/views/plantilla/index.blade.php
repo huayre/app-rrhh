@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Victory Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('template\vendors\mdi\css\materialdesignicons.min.css')}}">
@@ -20,16 +21,19 @@
     <link rel="stylesheet" href="{{asset('template\css\style.css')}}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{asset('template\images\favicon.png')}}">
+    <link rel="stylesheet" href="{{asset('template\vendors\font-awesome\css\font-awesome.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('template\vendors\datatables.net-bs4\dataTables.bootstrap4.css')}}">
 </head>
 <body>
 <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+        <div class="text-center bg-dark navbar-brand-wrapper d-flex align-items-top justify-content-center">
             <a class="navbar-brand brand-logo" href="index.html"><img src="{{asset('template\images\logo.svg')}}" alt="logo"></a>
             <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{asset('template\images\logo-mini.svg')}}" alt="logo"></a>
         </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center">
+        <div class="navbar-menu-wrapper d-flex align-items-center bg-primary">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                 <span class="icon-menu"></span>
             </button>
@@ -396,7 +400,7 @@
                         </a>
                         <div class="collapse" id="sidebar-empleados">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages\layout\compact-menu.html">EMPLEADOS</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{asset('empleado')}}">EMPLEADOS</a></li>
                             </ul>
                         </div>
                     </li>
@@ -437,7 +441,12 @@
                 </ul>
             </nav>
             <!-- partial -->
-            <div class="content-wrapper">
+            <div class="content-wrapper" style="background-color:#C2EBF0">
+               <div class="card">
+                   <div class="card-body">
+                      @yield('contenido')
+                   </div>
+               </div>
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">
                     <div class="container-fluid clearfix">
@@ -458,12 +467,16 @@
 <!-- plugins:js -->
 <script src="{{asset('template\vendors\js\vendor.bundle.base.js')}}"></script>
 <!-- endinject -->
+
 <!-- Plugin js for this page-->
 <script src="{{asset('template\vendors\jquery-bar-rating\jquery.barrating.min.js')}}"></script>
 <script src="{{asset('template\vendors\chart.js\Chart.min.js')}}"></script>
 <script src="{{asset('template\vendors\raphael\raphael.min.js')}}"></script>
 <script src="{{asset('template\vendors\morris.js\morris.min.js')}}"></script>
 <script src="{{asset('template\vendors\jquery-sparkline\jquery.sparkline.min.js')}}"></script>
+
+
+
 <!-- End plugin js for this page-->
 <!-- inject:js -->
 <script src="{{asset('template\js\off-canvas.js')}}"></script>
@@ -475,6 +488,18 @@
 <!-- Custom js for this page-->
 <script src="{{asset('template\js\dashboard.js')}}"></script>
 <!-- End custom js for this page-->
-</body>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script src="{{asset('template\vendors\datatables.net\jquery.dataTables.js')}}"></script>
+<script src="{{asset('template\vendors\datatables.net-bs4\dataTables.bootstrap4.js')}}"></script>
+
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
+@yield('scripts')
+</body>
 </html>

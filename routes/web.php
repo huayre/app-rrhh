@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PersonaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,6 @@ Route::get('/', function () {
 Route::get('inicio', function () {
     return view('plantilla.index');
 });
+Route::get('empleado', [PersonaController::class, 'listaEmpleados'])->name('empleado');
+Route::post('empleado', [PersonaController::class, 'crearEmpleado'])->name('empleado');
+Route::delete('empleado/{id}', [PersonaController::class, 'eliminarEmpleado'])->name('empleado');
