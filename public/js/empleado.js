@@ -74,9 +74,9 @@ function validarDatosCliente() {
 
 function guardarEmpleado() {
     let formularioEmpelados = document.getElementById('formulario_empleado');
-    console.log(formularioEmpelados)
     let datos = new FormData(formularioEmpelados);
-    console.log(datos);
+    let botonCrearCliente = document.getElementById('btn_crear_cliente');
+    botonCrearCliente.disabled = 'false'
     $.ajax({
         method: 'POST',
         data: datos,
