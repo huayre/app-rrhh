@@ -207,6 +207,10 @@
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                 <span class="icon-menu"></span>
             </button>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+               @csrf
+                <button type="submit" class="btn "><i class="fa fa-power-off fa-2x"></i></button>
+            </form>
         </div>
     </nav>
     <!-- partial -->
