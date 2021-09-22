@@ -14,6 +14,7 @@ class PersonaController extends Controller
         $areas = Area::all('id', 'nombre');
         $empleados = Persona::with('area')
             ->where('tipo_persona',1)
+            ->orderBy('created_at','desc')
             ->get();
         return view('empleado.index')->with(['areas' => $areas,'empleados' => $empleados]);
     }

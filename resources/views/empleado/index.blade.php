@@ -54,7 +54,6 @@
             </div>
         </div>
     </div>
-    <script src="{{asset('js/empleado.js')}}"></script>
 @endsection
 @section('scripts')
     <script src="{{asset('js/empleado.js')}}"></script>
