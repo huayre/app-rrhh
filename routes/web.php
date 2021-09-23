@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonaController;
+use App\Http\Controllers\VacanteController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\AuthController;
 
