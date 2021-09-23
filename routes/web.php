@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonaController;
+use App\Http\Controllers\InicioController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -18,9 +19,8 @@ use App\Http\Controllers\AuthController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('inicio', function () {
-    return view('plantilla.index');
-});
+Route::get('inicio', [InicioController::class, 'inicio'])->name('inicio');
+
 Route::post('login', [AuthController::class, 'authenticate'])->name('login');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 

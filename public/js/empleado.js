@@ -1,6 +1,32 @@
 $(document).ready(function () {
-   $('#tabla_empleados').DataTable();
+    $('#tabla_empleados').DataTable(
+        {
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend:    'copyHtml5',
+                    text:      '<i class="fa fa-files-o"></i>',
+                    titleAttr: 'Copy'
+                },
+                {
+                    extend:    'excelHtml5',
+                    text:      '<i class="fa fa-file-excel-o text-success"></i>',
+                    titleAttr: 'Excel'
+                },
+                {
+                    extend:    'csvHtml5',
+                    text:      '<i class="fa fa-file-text-o text-primary"></i>',
+                    titleAttr: 'CSV'
+                },
+                {
+                    extend:    'pdfHtml5',
+                    text:      '<i class="fa fa-file-pdf-o text-danger"></i>',
+                    titleAttr: 'PDF'
+                }
+            ]
+        });
 });
+
 function abrirModalEmpleado() {
     document.getElementById('formulario_empleado').reset();
     let botonCrearCliente = document.getElementById('btn_crear_cliente');

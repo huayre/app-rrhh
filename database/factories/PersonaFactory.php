@@ -34,7 +34,7 @@ class PersonaFactory extends Factory
             'fecha_nacimiento' => date('Y-m-d'),
             'avatar' => '',
             'tipo_persona' => 1,
-            'area_id' => rand(1,2),
+            'area_id' => 1,
         ];
     }
 }

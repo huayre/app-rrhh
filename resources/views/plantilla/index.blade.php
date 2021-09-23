@@ -24,6 +24,12 @@
     <link rel="stylesheet" href="{{asset('template\vendors\font-awesome\css\font-awesome.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('template\vendors\datatables.net-bs4\dataTables.bootstrap4.css')}}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css">
+    <style>
+        .nav-link-hover:hover{
+            border-left: #03a9f3 solid 4px;
+        }
+    </style>
 </head>
 <body>
 <div class="container-scroller">
@@ -391,15 +397,14 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
-                            <i class="icon-rocket menu-icon"></i>
-                            <span class="menu-title">Dashboard</span>
-                            <span class="badge badge-success">New</span>
+                        <a class="nav-link nav-link-hover" href="{{route('inicio')}}">
+                            <i class="icon-rocket menu-icon text-primary"></i>
+                            <span class="menu-title">DASHBOARD</span>
                         </a>
                     </li>
                     <li class="nav-item d-none d-lg-block">
-                        <a class="nav-link" data-toggle="collapse" href="#sidebar-empleados" aria-expanded="false" aria-controls="sidebar-layouts">
-                            <i class="icon-layers menu-icon"></i>
+                        <a class="nav-link nav-link-hover" data-toggle="collapse" href="#sidebar-empleados" aria-expanded="false" aria-controls="sidebar-layouts">
+                            <i class="icon-people menu-icon text-primary"></i>
                             <span class="menu-title">EMPLEADOS</span>
                         </a>
                         <div class="collapse" id="sidebar-empleados">
@@ -409,8 +414,8 @@
                         </div>
                     </li>
                     <li class="nav-item d-none d-lg-block">
-                        <a class="nav-link" data-toggle="collapse" href="#sidebar-areas" aria-expanded="false" aria-controls="sidebar-layouts">
-                            <i class="icon-layers menu-icon"></i>
+                        <a class="nav-link nav-link-hover" data-toggle="collapse" href="#sidebar-areas" aria-expanded="false" aria-controls="sidebar-layouts">
+                            <i class="icon-directions menu-icon text-primary"></i>
                             <span class="menu-title">ÁREAS</span>
                         </a>
                         <div class="collapse" id="sidebar-areas">
@@ -420,8 +425,8 @@
                         </div>
                     </li>
                     <li class="nav-item d-none d-lg-block">
-                        <a class="nav-link" data-toggle="collapse" href="#sidebar-convocatorias" aria-expanded="false" aria-controls="sidebar-layouts">
-                            <i class="icon-layers menu-icon"></i>
+                        <a class="nav-link nav-link-hover" data-toggle="collapse" href="#sidebar-convocatorias" aria-expanded="false" aria-controls="sidebar-layouts">
+                            <i class="icon-speech menu-icon text-primary"></i>
                             <span class="menu-title">CONVOCATORIAS</span>
                         </a>
                         <div class="collapse" id="sidebar-convocatorias">
@@ -432,8 +437,8 @@
                         </div>
                     </li>
                     <li class="nav-item d-none d-lg-block">
-                        <a class="nav-link" data-toggle="collapse" href="#sidebar-nomina" aria-expanded="false" aria-controls="sidebar-layouts">
-                            <i class="icon-layers menu-icon"></i>
+                        <a class="nav-link nav-link-hover" data-toggle="collapse" href="#sidebar-nomina" aria-expanded="false" aria-controls="sidebar-layouts">
+                            <i class="icon-folder text-primary menu-icon"></i>
                             <span class="menu-title">NÓMINA</span>
                         </a>
                         <div class="collapse" id="sidebar-nomina">
@@ -496,6 +501,13 @@
 
 <script src="{{asset('template\vendors\datatables.net\jquery.dataTables.js')}}"></script>
 <script src="{{asset('template\vendors\datatables.net-bs4\dataTables.bootstrap4.js')}}"></script>
+
+<script src="https://cdn.datatables.net/buttons/2.0.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js"></script>
 
 <script>
     $.ajaxSetup({
