@@ -19,15 +19,15 @@
                         <label>Cantidad:</label>
                         <input type="text" class="form-control border-primary" name="cantidad" id="cantidad">
                         <label>Fecha limite:</label>
-                        <input type="text" class="form-control border-primary" name="fecha_limite" id="num_dni">
+                        <input type="date" class="form-control border-primary" name="fecha_limite" id="fecha_limite">
                         <label>Requisitos:</label>
                         <input type="text" class="form-control border-primary" name="requisitos" id="requisitos">
                         <label>Responsabilidades:</label>
-                        <input type="text" class="form-control border-primary" name="responsabilidades" id="num_celular">
+                        <input type="text" class="form-control border-primary" name="responsabilidades" id="responsabilidades">
                         <label>Beneficios:</label>
-                        <input type="email" class="form-control border-primary" name="beneficios" id="beneficios">
+                        <input type="text" class="form-control border-primary" name="beneficios" id="beneficios">
                         <label>Tipo de puesto:</label>
-                        <input type="email" class="form-control border-primary" name="beneficios" id="beneficios">
+                        <input type="text" class="form-control border-primary" name="tipo_puesto" id="tipo_puesto">
                         <label>Area de trabajo:</label>
                         <select class="form-control border-primary" name="area_id" id="area_id">
                             <option selected disabled value="0">Selecione el área de trabajo</option>

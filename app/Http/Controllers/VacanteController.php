@@ -17,7 +17,7 @@ class VacanteController extends Controller
             
 
             ->get();
-        return view('vacante.index')->with(['areas' => $areas,'vacantes' => $vacantes]);
+        return view('vacante.index')->with(['vacantes' => $vacantes,'areas' => $areas]);
     }
 
     public function crearVacante(Request $request)
@@ -25,11 +25,7 @@ class VacanteController extends Controller
         $mensaje = 'success';
         try {
 
-            if ($request->file('url_copia_dni')) {
-                $ruta = $request->file('url_copia_dni')->store('public/PdfsDnis');
-                $ruta = Storage::url($ruta);
-                $ruta = asset($ruta);
-            }
+           
             $recurso = Vacante::create([
 
                 'nombre' => $request->nombre,

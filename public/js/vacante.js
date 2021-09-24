@@ -98,8 +98,8 @@ function validarDatosCliente() {
 
 function guardarVacante() {
 
-    let formularioEmpelados = document.getElementById('formulario_vacante');
-    let datos = new FormData(formularioVacantes);
+    let formularioVacanetes = document.getElementById('formulario_vacante');
+    let datos = new FormData(formularioVacanetes);
     let botonCrearCliente = document.getElementById('btn_crear_cliente');
     botonCrearCliente.disabled = 'false'
 
@@ -116,7 +116,7 @@ function guardarVacante() {
                 Swal.fire({
                     title: 'Correcto!',
 
-                    text: 'El empleado ' + datosServidor.recurso.nombre  + ' fue registrado correctamente',
+                    text: 'El empleado '   + datosServidor.recurso.nombre + ' ' + datosServidor.recurso.cantidad +' fue registrado correctamente',
 
                     icon: 'success',
                     customClass: 'swal-height'
