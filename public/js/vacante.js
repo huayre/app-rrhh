@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $('#tabla_vacantes').DataTable(
         {
             dom: 'Bfrtip',
@@ -46,12 +47,14 @@ function validarDatosCliente() {
     let botonCrearClienteMensaje = document.getElementById('btn_crear_cliente_mensaje');
     botonCrearClienteMensaje.style.display = 'block'
     botonCrearClienteMensaje.disabled = 'true'
+
     let nombre = document.getElementById('nombre').value;
     let cantidad = document.getElementById('cantidad').value;
     let fecha_limite = document.getElementById('fecha_limite').value;
     let requisitos = document.getElementById('requisitos').value;
     let responsabilidades = document.getElementById('responsabilidades').value;
     let beneficios = document.getElementById('beneficios').value;
+
     let tipo_puesto = document.getElementById('tipo_puesto').value;
     
     let area_id = document.getElementById('area_id').value;
@@ -86,6 +89,7 @@ function validarDatosCliente() {
         botonCrearClienteMensaje.style.background = '#00c292';
         botonCrearCliente.innerText = 'GUARDAR'
         botonCrearCliente.onclick = function () {
+
             guardarVacante();
         };
     }
@@ -93,10 +97,12 @@ function validarDatosCliente() {
 }
 
 function guardarVacante() {
+
     let formularioEmpelados = document.getElementById('formulario_vacante');
     let datos = new FormData(formularioVacantes);
     let botonCrearCliente = document.getElementById('btn_crear_cliente');
     botonCrearCliente.disabled = 'false'
+
     $.ajax({
         method: 'POST',
         data: datos,
@@ -109,7 +115,9 @@ function guardarVacante() {
             if (datosServidor.mensaje == 'success') {
                 Swal.fire({
                     title: 'Correcto!',
+
                     text: 'El empleado ' + datosServidor.recurso.nombre  + ' fue registrado correctamente',
+
                     icon: 'success',
                     customClass: 'swal-height'
                 }).then((result) => {
@@ -131,7 +139,9 @@ function guardarVacante() {
     })
 }
 
+
 function eliminarEmpleado(idCliente) {
+
     Swal.fire({
         title: '¿Está seguro?',
         text: "¡No podrás revertir esto!",
@@ -146,12 +156,20 @@ function eliminarEmpleado(idCliente) {
         if (result.isConfirmed) {
             $.ajax({
                 method: 'DELETE',
+
                 url: 'vacante/' + idCliente,
+
+
+
                 success: function (datosServidor) {
                     if (datosServidor.mensaje == 'success') {
                         Swal.fire({
                             title: 'Borrado!',
-                            text: 'el empleado fue eliminado..',
+
+                           
+
+                            text: 'la vacante fue eliminada..',
+
                             icon: 'success',
                             customClass: 'swal-height'
                         }).then((result) => {
