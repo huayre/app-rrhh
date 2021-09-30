@@ -34,6 +34,8 @@ Route::delete('empleado/{id}', [PersonaController::class, 'eliminarEmpleado'])->
 
 Route::get('vacante', [VacanteController::class, 'listaVacantes'])->name('vacante');
 Route::post('vacante', [VacanteController::class, 'crearVacante'])->name('vacante');
+Route::delete('vacante/{id}', [VacanteController::class, 'eliminarVacante'])->name('vacantes');
 
 Route::get('funciones', [FuncionController::class, 'listaFunciones'])->name('funcion');
 Route::post('funciones', [FuncionController::class, 'crearFuncion'])->name('funcion');
+Route::delete('funciones/{id}', [FuncionController::class, 'eliminarFuncion'])->name('funciones');

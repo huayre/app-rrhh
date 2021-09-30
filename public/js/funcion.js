@@ -109,7 +109,7 @@ function guardarFuncion() {
 }
 
 
-function eliminarEmpleado(idCliente) {
+function eliminarFuncion(idCliente) {
 
     Swal.fire({
         title: '¿Está seguro?',
@@ -125,20 +125,12 @@ function eliminarEmpleado(idCliente) {
         if (result.isConfirmed) {
             $.ajax({
                 method: 'DELETE',
-
-                url: 'funcion/' + idCliente,
-
-
-
+                url: 'funciones/' + idCliente,
                 success: function (datosServidor) {
                     if (datosServidor.mensaje == 'success') {
                         Swal.fire({
                             title: 'Borrado!',
-
-                           
-
-                            text: 'la vacante fue eliminada..',
-
+                            text: 'el empleado fue eliminado..',
                             icon: 'success',
                             customClass: 'swal-height'
                         }).then((result) => {

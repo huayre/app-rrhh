@@ -28,7 +28,7 @@
                     <thead>
                     <tr>
 
-                      
+                        <th>ID</th>
                         <th>Nombres</th>
 
                         <th>OPCIONES</th>
@@ -38,7 +38,7 @@
 
                     @foreach($funciones as $funcion)
                         <tr>
-                            
+                            <td>{{$funcion->id}}</td>
                             <td>{{$funcion->nombre}}</td>
                             
                             <td>

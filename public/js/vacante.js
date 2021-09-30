@@ -140,7 +140,7 @@ function guardarVacante() {
 }
 
 
-function eliminarEmpleado(idCliente) {
+function eliminarVacante(idCliente) {
 
     Swal.fire({
         title: '¿Está seguro?',
