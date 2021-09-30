@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Funcion extends Model
 {
+    
     use HasFactory;
+    protected $table = 'funciones';
+    protected $fillable = [
+        'nombre',
+        
+    ];
+  
 }

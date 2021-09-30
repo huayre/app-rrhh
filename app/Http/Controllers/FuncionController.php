@@ -1,16 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Vacante;
+use App\Models\Funcion;
+use App\Models\Area;
 
 use Illuminate\Http\Request;
-use App\Models\Funcion;
+use Illuminate\Support\Facades\Storage;
 
 class FuncionController extends Controller
 {
     public function listaFunciones()
     {
         $funciones = Funcion::all('id', 'nombre');
-        
+       
         return view('funciones.index')->with(['funciones' => $funciones]);
     }
 
@@ -52,5 +55,3 @@ class FuncionController extends Controller
 }
   
 
-  //
-}
