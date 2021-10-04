@@ -23,14 +23,18 @@
                 <table class="table table-bordered" id="tabla_area">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>ÁREA</th>
                             <th>DESCRIPCIÓN</th>
+                            <th>OPCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
+                    @php $item=1 @endphp
                     @foreach($areas as $area)
                         <tr>
-                            <td>{{$area->nombre}}</td>
+                            <td><small class="badge badge-success">{{$item++}}</small></td>
+                            <td><small class="badge badge-dark">{{$area->nombre}}</small></td>
                             <td>{{$area->descripcion}}</td>
                             <td>
                                 <button class="btn btn-default p-1" onclick="eliminarArea('{{$area->id}}')"><i
