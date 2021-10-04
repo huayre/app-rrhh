@@ -6,6 +6,7 @@ use App\Http\Controllers\VacanteController;
 use App\Http\Controllers\FuncionController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AreaController;
 
 
 
@@ -39,3 +40,7 @@ Route::delete('vacante/{id}', [VacanteController::class, 'eliminarVacante'])->na
 Route::get('funciones', [FuncionController::class, 'listaFunciones'])->name('funcion');
 Route::post('funciones', [FuncionController::class, 'crearFuncion'])->name('funcion');
 Route::delete('funciones/{id}', [FuncionController::class, 'eliminarFuncion'])->name('funciones');
+
+Route::get('areas', [AreaController::class, 'listaAreas'])->name('areas');
+Route::post('areas', [AreaController::class, 'crearArea'])->name('areas');
+Route::delete('areas/{id}', [AreaController::class, 'eliminarArea'])->name('areass');

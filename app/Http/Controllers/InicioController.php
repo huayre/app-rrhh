@@ -10,6 +10,7 @@ class InicioController extends Controller
     public function inicio()
     {
         $numeroEmpleados = Persona::where('tipo_persona', 1)->count();
+        //$numeroEmpleados = Persona::withCount('tipo_persona', 1)->count();
         return view('inicio')->with(['numeroEmpleados' => $numeroEmpleados]);
     }
 }

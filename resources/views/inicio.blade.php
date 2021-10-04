@@ -37,5 +37,68 @@
 
         </div>
     </div>
+    <div class="card caja mt-5">
+        <div class="card-body">
+            <h4 class="card-title text-center">Empleados por Área</h4>
+            <div class="float-chart-container">
+                <div id="pie-chart" class="float-chart"></div>
+            </div>
+        </div>
+    </div>
+@endsection
+@section('scripts')
+    <script>
+        (function($) {
+            'use strict';
+
+            var data = [{
+                data: 18000,
+                color: '#FABA66',
+                label: 'Linda'
+                },
+                {
+                    data: 20000,
+                    color: '#F36368',
+                    label: 'John'
+                },
+                {
+                    data: 13000,
+                    color: '#76C1FA',
+                    label: 'Margaret'
+                },
+                {
+                    data: 15000,
+                    color: '#63CF72',
+                    label: 'Richard'
+                }
+            ];
+
+            if($("#pie-chart").length) {
+                $.plot("#pie-chart", data, {
+                    series: {
+                        pie: {
+                            show: true,
+                            radius: 1,
+                            label: {
+                                show: true,
+                                radius: 3 / 4,
+                                formatter: labelFormatter,
+                                background: {
+                                    opacity: 0.5
+                                }
+                            }
+                        }
+                    },
+                    legend: {
+                        show: false
+                    }
+                });
+            }
+
+            function labelFormatter(label, series) {
+                return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
+            }
+        })(jQuery);
+    </script>
 @endsection
 

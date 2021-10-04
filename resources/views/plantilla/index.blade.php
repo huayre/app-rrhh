@@ -420,7 +420,7 @@
                         </a>
                         <div class="collapse" id="sidebar-areas">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages\layout\compact-menu.html">ÁREAS</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('areas')}}">ÁREAS</a></li>
                             </ul>
                         </div>
                     </li>
@@ -495,7 +495,12 @@
 <script src="{{asset('template\vendors\morris.js\morris.min.js')}}"></script>
 <script src="{{asset('template\vendors\jquery-sparkline\jquery.sparkline.min.js')}}"></script>
 
-
+<script src="{{asset('template\vendors\flot\jquery.flot.js')}}"></script>
+<script src="{{asset('template\vendors\flot\jquery.flot.resize.js')}}"></script>
+<script src="{{asset('template\vendors\flot\jquery.flot.categories.js')}}"></script>
+<script src="{{asset('template\vendors\flot\jquery.flot.fillbetween.js')}}"></script>
+<script src="{{asset('template\vendors\flot\jquery.flot.stack.js')}}"></script>
+<script src="{{asset('template\vendors\flot\jquery.flot.pie.js')}}"></script>
 
 <!-- End plugin js for this page-->
 <!-- inject:js -->
