@@ -27,7 +27,7 @@ class CreatePersonasTable extends Migration
             $table->date('fecha_nacimiento')->nullable();
             $table->string('avatar')->nullable();
             $table->integer('tipo_persona')->comment('1:empleado,2:postulante');
-            $table->unsignedBigInteger('area_id');
+            $table->unsignedBigInteger('area_id')->nullable();
             $table->unsignedBigInteger('vacante_id')->nullable();
             $table->timestamps();
             $table->foreign('area_id')->references('id')->on('areas');

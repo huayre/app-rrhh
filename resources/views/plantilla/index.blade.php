@@ -431,7 +431,7 @@
                         </a>
                         <div class="collapse" id="sidebar-convocatorias">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages\layout\compact-menu.html">POSTULANTES</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('postulante')}}">POSTULANTES</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="{{route('vacante')}}">VACANTES</a></li>
                             </ul>
                         </div>

@@ -30,4 +30,7 @@ class Persona extends Model
     public function area() {
         return $this->belongsTo(Area::class);
     }
+    public function vacante() {
+        return $this->belongsTo(Vacante::class);
+    }
 }

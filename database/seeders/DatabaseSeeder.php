@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         //AreaSeeder::class;
         \App\Models\Persona::factory(100)->create();
-       // \App\Models\User::factory(1)->create();
+        \App\Models\User::factory(1)->create();
     }
 }

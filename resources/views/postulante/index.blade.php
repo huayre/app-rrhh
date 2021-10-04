@@ -13,42 +13,39 @@
             height: 350px;
         }
     </style>
-    @include('vacante.create')
+    @include('postulante.create_modal')
     <div>
-
-        <button type="button" class="btn btn-primary btn-rounded btn-fw mb-3" onclick="abrirModalVacante()">Nueva
-
-            Vacante
+        <button type="button" class="btn btn-primary btn-rounded btn-fw mb-3" onclick="abrirModalEmpleado()">Nuevo
+            Postulante
         </button>
     </div>
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
-                <table class="table table-bordered" id="tabla_vacantes">
+                <table class="table table-bordered" id="tabla_empleados">
                     <thead>
                     <tr>
-
-                        <th>Area</th>
                         <th>Vacante</th>
-                        <th>Cantidad</th>
-                        <th>Fecha limite</th>
-                        <th>Tipo de Puesto</th>
+                        <th>Nombres</th>
+                        <th>DNI</th>
+                        <th>Nro. Celular</th>
+                        <th>Correo</th>
                         <th>OPCIONES</th>
                     </tr>
                     </thead>
                     <tbody>
-
-                    @foreach($vacantes as $vacante)
+                    @foreach($postulantes as $postulante)
                         <tr>
-                            <td>{{$vacante->area->nombre}}</td>
-                            <td class="badge badge-warning">{{$vacante->nombre}}</td>
-                            <td>{{$vacante->cantidad}}</td>
-                            <td>{{$vacante->fecha_limite}}</td>
-                            <td>{{$vacante->tipo_puesto}}</td>
+                            <td class="badge badge-warning">{{$postulante->vacante->nombre}}</td>
+                            <td>{{$postulante->nombre . ' '. $postulante->apellido}}</td>
+                            <td>{{$postulante->num_dni}}</td>
+                            <td>{{$postulante->num_celular}}</td>
+                            <td>{{$postulante->correo}}</td>
                             <td>
-                                <button class="btn btn-default p-1" onclick="eliminarVacante('{{$vacante->id}}')"><i
+                                <button class="btn btn-default p-1" onclick="eliminarEmpleado('{{$postulante->id}}')"><i
                                         class="fa fa-trash-o text-danger"></i></button>
                                 <button class="btn btn-default p-1"><i class="fa fa-edit text-dark"></i></button>
+                                <a href="{{$postulante->url_copia_dni}}" target="_blank" class="btn btn-default p-1"><i class="fa fa-address-card text-primary"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -57,9 +54,7 @@
             </div>
         </div>
     </div>
-
-
 @endsection
 @section('scripts')
-    <script src="{{asset('js/vacante.js')}}"></script>
+    <script src="{{asset('js/postulante.js')}}"></script>
 @endsection

@@ -22,6 +22,8 @@
                         <input type="date" class="form-control border-primary" name="fecha_limite" id="fecha_limite">
                         <label>Requisitos:</label>
                         <input type="text" class="form-control border-primary" name="requisitos" id="requisitos">
+                    </div>
+                    <div class="col-md-6">
                         <label>Responsabilidades:</label>
                         <input type="text" class="form-control border-primary" name="responsabilidades" id="responsabilidades">
                         <label>Beneficios:</label>

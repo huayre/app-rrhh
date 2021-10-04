@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Area;
 use App\Models\Persona;
+use App\Models\Vacante;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -57,6 +58,41 @@ class PersonaController extends Controller
             $empleado->delete();
 
         } catch (\Exception $e){
+            $mensaje = 'errors';
+            $recurso = $e->getMessage();
+        }
+        return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
+    }
+
+    public function listarPostulante() {
+        $vacantes = Vacante::all('id', 'nombre');
+        $postulantes = Persona::with('vacante')
+            ->where('tipo_persona',2)
+            ->orderBy('created_at','desc')
+            ->get();
+        return view('postulante.index')->with(['vacantes' => $vacantes,'postulantes' => $postulantes]);
+    }
+
+    public function crearPostulante(Request $request) {
+        $mensaje = 'success';
+        try {
+            if ($request->file('cv')) {
+                $ruta = $request->file('cv')->store('public/PdfsVcs');
+                $ruta = Storage::url($ruta);
+                $ruta = asset($ruta);
+            }
+            $recurso = Persona::create([
+                'nombre' => $request->nombre,
+                'apellido' => $request->apellido,
+                'num_dni' => $request->num_dni,
+                'direccion' => $request->direccion,
+                'num_celular' => $request->num_celular,
+                'correo' => $request->correo,
+                'url_copia_dni' => $ruta,
+                'tipo_persona' => 2,
+                'vacante_id' => $request->vacante_id,
+            ]);
+        } catch (\Exception $e) {
             $mensaje = 'errors';
             $recurso = $e->getMessage();
         }
