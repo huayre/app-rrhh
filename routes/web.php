@@ -47,3 +47,4 @@ Route::delete('areas/{id}', [AreaController::class, 'eliminarArea'])->name('area
 
 Route::get('postulante', [PersonaController::class, 'listarPostulante'])->name('postulante');
 Route::post('postulante', [PersonaController::class, 'crearPostulante'])->name('postulante');
+Route::get('postulante/{id}', [PersonaController::class, 'aprobarPostulante']);

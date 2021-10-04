@@ -42,10 +42,18 @@
                             <td>{{$postulante->num_celular}}</td>
                             <td>{{$postulante->correo}}</td>
                             <td>
+                                @if(!$postulante->status_vacante)
+                                    <span class="badge badge-info">en proceso</span>
+                                @else
+                                    <span class="badge badge-success">seleccionado</span>
+                                @endif
+                            </td>
+                            <td>
                                 <button class="btn btn-default p-1" onclick="eliminarEmpleado('{{$postulante->id}}')"><i
                                         class="fa fa-trash-o text-danger"></i></button>
                                 <button class="btn btn-default p-1"><i class="fa fa-edit text-dark"></i></button>
                                 <a href="{{$postulante->url_copia_dni}}" target="_blank" class="btn btn-default p-1"><i class="fa fa-address-card text-primary"></i></a>
+                                <button class="btn btn-default p-1" onclick="aprobarSeleccionPersonal('{{$postulante->id}}')"><i class="fa fa-check text-success"></i></button>
                             </td>
                         </tr>
                     @endforeach

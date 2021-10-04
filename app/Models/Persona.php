@@ -24,7 +24,8 @@ class Persona extends Model
         'avatar',
         'tipo_persona',
         'area_id',
-        'vacante_id'
+        'vacante_id',
+        'status_vacante'
     ];
 
     public function area() {

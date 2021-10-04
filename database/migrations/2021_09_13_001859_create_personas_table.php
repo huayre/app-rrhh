@@ -26,6 +26,7 @@ class CreatePersonasTable extends Migration
             $table->integer('salario')->nullable();
             $table->date('fecha_nacimiento')->nullable();
             $table->string('avatar')->nullable();
+            $table->boolean('status_vacante')->nullable();
             $table->integer('tipo_persona')->comment('1:empleado,2:postulante');
             $table->unsignedBigInteger('area_id')->nullable();
             $table->unsignedBigInteger('vacante_id')->nullable();

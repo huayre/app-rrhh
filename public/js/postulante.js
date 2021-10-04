@@ -89,7 +89,47 @@ function validarDatosCliente() {
     }
 
 }
-
+function  aprobarSeleccionPersonal(idCliente) {
+    Swal.fire({
+        title: '¿Está seguro?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'si, aceptar!',
+        cancelButtonText: 'No, cancelar!',
+        customClass: 'swal-height'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                method: 'GET',
+                url: 'postulante/' + idCliente,
+                success: function (datosServidor) {
+                    if (datosServidor.mensaje == 'success') {
+                        Swal.fire({
+                            title: 'Aprobado!',
+                            text: 'el empleado Aprobado Correctamente..',
+                            icon: 'success',
+                            customClass: 'swal-height'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload();
+                            }
+                        })
+                    } else if (datosServidor.mensaje == 'errors') {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: datosServidor.recurso,
+                            icon: 'error',
+                            customClass: 'swal-height'
+                        })
+                    }
+                }
+            })
+        }
+    })
+}
 function guardarEmpleado() {
     let formularioEmpelados = document.getElementById('formulario_empleado');
     let datos = new FormData(formularioEmpelados);

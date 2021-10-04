@@ -91,8 +91,24 @@ class PersonaController extends Controller
                 'url_copia_dni' => $ruta,
                 'tipo_persona' => 2,
                 'vacante_id' => $request->vacante_id,
+                'status_vacante' => false,
             ]);
         } catch (\Exception $e) {
+            $mensaje = 'errors';
+            $recurso = $e->getMessage();
+        }
+        return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
+    }
+    function aprobarPostulante($id){
+        $mensaje = 'success';
+        $recurso = '';
+        try {
+            $empleado = Persona::find($id);
+            $empleado->update([
+                'status_vacante' =>true
+            ]);
+
+        } catch (\Exception $e){
             $mensaje = 'errors';
             $recurso = $e->getMessage();
         }
