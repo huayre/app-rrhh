@@ -18,12 +18,15 @@ class Vacante extends Model
         'requisitos',
         'responsabilidades',
         'beneficios',
-        
         'tipo_puesto',
         'area_id'
-        
+
     ];
     public function area() {
         return $this->belongsTo(Area::class);
     }
+    public function postulantes() {
+        return $this->hasMany(Persona::class);
+    }
+
 }

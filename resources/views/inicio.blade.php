@@ -67,12 +67,53 @@
         </div>
     </div>
     <input type="hidden" value="{{$areas}}" id="areas">
+    <input type="hidden" value="{{$vacantes}}" id="vacantes">
+    <div class="card caja mt-5">
+        <div class="card-body">
+            <h4 class="card-title">CONVOCATORIAS</h4>
+            <div class="float-chart-container">
+                <div id="column-chart" class="float-chart"></div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('scripts')
     <script>
+        $(function() {
+            let vacantes = JSON.parse( document.getElementById('vacantes').value);
+            var data = [];
+            for (const elemento of vacantes){
+                let item = [elemento.nombre, elemento.postulantes_count];
+                data.push(item);
+            }
+
+            if($("#column-chart").length) {
+                $.plot("#column-chart", [data], {
+                    series: {
+                        bars: {
+                            show: true,
+                            barWidth: 0.6,
+                            align: "center"
+                        }
+                    },
+                    xaxis: {
+                        mode: "categories",
+                        tickLength: 0
+                    },
+                    grid: {
+                        borderWidth: 0,
+                        labelMargin: 10,
+                        hoverable: true,
+                        clickable: true,
+                        mouseActiveRadius: 6,
+                    }
+
+                });
+            }
+        });
+
         (function($) {
             'use strict';
-
             let areas = JSON.parse( document.getElementById('areas').value);
             var data = [];
             for (const elemento of areas){
