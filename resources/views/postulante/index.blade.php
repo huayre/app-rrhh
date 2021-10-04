@@ -30,6 +30,7 @@
                         <th>DNI</th>
                         <th>Nro. Celular</th>
                         <th>Correo</th>
+                        <th>Estado</th>
                         <th>OPCIONES</th>
                     </tr>
                     </thead>
