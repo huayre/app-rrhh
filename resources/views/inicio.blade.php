@@ -60,39 +60,29 @@
     </div>
     <div class="card caja mt-5">
         <div class="card-body">
-            <h4 class="card-title text-center">Empleados por Área</h4>
+            <h4 class="card-title text-center">ÁREAS</h4>
             <div class="float-chart-container">
                 <div id="pie-chart" class="float-chart"></div>
             </div>
         </div>
     </div>
+    <input type="hidden" value="{{$areas}}" id="areas">
 @endsection
 @section('scripts')
     <script>
         (function($) {
             'use strict';
 
-            var data = [{
-                data: 18000,
-                color: '#FABA66',
-                label: 'Linda'
-                },
-                {
+            let areas = JSON.parse( document.getElementById('areas').value);
+            var data = [];
+            for (const elemento of areas){
+                let item = {
                     data: 20000,
-                    color: '#F36368',
-                    label: 'John'
-                },
-                {
-                    data: 13000,
-                    color: '#76C1FA',
-                    label: 'Margaret'
-                },
-                {
-                    data: 15000,
-                    color: '#63CF72',
-                    label: 'Richard'
+                    color: colorHEX(),
+                    label: elemento.nombre
                 }
-            ];
+                data.push(item);
+            }
 
             if($("#pie-chart").length) {
                 $.plot("#pie-chart", data, {
@@ -117,7 +107,20 @@
             }
 
             function labelFormatter(label, series) {
-                return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
+                return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/></div>";
+            }
+            function generarLetra(){
+                var letras = ["a","b","c","d","e","f","0","1","2","3","4","5","6","7","8","9"];
+                var numero = (Math.random()*15).toFixed(0);
+                return letras[numero];
+            }
+
+            function colorHEX(){
+                var coolor = "";
+                for(var i=0;i<6;i++){
+                    coolor = coolor + generarLetra() ;
+                }
+                return "#" + coolor;
             }
         })(jQuery);
     </script>

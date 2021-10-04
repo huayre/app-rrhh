@@ -17,9 +17,9 @@
             <div class="col-md-8" style="background-image:url('/template/images/auth/fondo.jpg')">
             </div>
             <div class="col-md-4" style="background-color: white;height: 100vh;width:100vh">
-                <form style="width: 300px;margin: auto auto;margin-top: 210px" method="post" action="{{route('login')}}">
+                <form style="width: 300px;margin: auto auto;margin-top: 170px" method="post" action="{{route('login')}}">
                     @csrf
-                    <img src="{{asset('template\images\logo.svg')}}" alt="logo" style="width: 190px;height: 50px;display: block;margin: auto auto">
+                    <img src="{{asset('logo.jpg')}}" alt="logo" style="width: 200px;height: 100px;display: block;margin: auto auto">
                     <input type="email" class="form form-control mb-4 mt-4 border-primary" placeholder="Usuario" name="email" required>
                     <input type="password" class="form form-control mb-4 border-primary" placeholder="Contraseña" name="password" required>
                     <p class="text-danger text-center" style="font-weight: bold"> {{$errors->first('error')}}</p>
