@@ -25,7 +25,7 @@
                         <input type="email" class="form-control border-primary" name="correo" id="correo">
                     </div>
                     <div class="col-md-6">
-                        <label>Fecha Nacimiento:</label>
+                        <label>Fecha Contrato:</label>
                         <input type="date" class="form-control border-primary" name="fecha_nacimiento" id="fecha_nacimiento">
                         <label>Linkedin:</label>
                         <input type="text" class="form-control border-primary" name="url_linkedin" id="url_linkedin">

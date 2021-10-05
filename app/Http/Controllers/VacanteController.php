@@ -14,7 +14,7 @@ class VacanteController extends Controller
         $areas = Area::all('id', 'nombre');
         $vacantes = Vacante::with('area')
 
-            
+
 
             ->get();
         return view('vacante.index')->with(['vacantes' => $vacantes,'areas' => $areas]);
@@ -25,7 +25,7 @@ class VacanteController extends Controller
         $mensaje = 'success';
         try {
 
-           
+
             $recurso = Vacante::create([
 
                 'nombre' => $request->nombre,
@@ -62,7 +62,13 @@ class VacanteController extends Controller
         return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
 
     }
+    public function listaVacantesTrabajo(){
+        $areas = Area::all('id', 'nombre');
+        $vacantes = Vacante::with('area')
+            ->get();
+        return view('trabajo.index')->with(['vacantes' => $vacantes,'areas' => $areas]);
+    }
 
 }
-  
+
 

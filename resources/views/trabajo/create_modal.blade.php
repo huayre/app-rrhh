@@ -26,12 +26,7 @@
                         <label>Correo:</label>
                         <input type="email" class="form-control border-primary" name="correo" id="correo">
                         <label>Vacante:</label>
-                        <select class="form-control border-primary" name="vacante_id" id="vacante_id">
-                            <option selected disabled value="0">Vacante</option>
-                            @foreach($vacantes as $vacante)
-                                <option value="{{$vacante->id}}">{{$vacante->nombre}}</option>
-                            @endforeach
-                        </select>
+                        <input type="hidden" id="vacante_id" name="vacante_id">
                         <label> Curriculum Vitae:</label>
                         <input type="file" class="form-control border-primary" name="cv" id="cv">
                     </div>
