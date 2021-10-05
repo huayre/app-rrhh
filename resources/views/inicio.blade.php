@@ -58,6 +58,28 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card caja mt-5">
+                <div class="card-body">
+                    <h4 class="card-title">CONVOCATORIAS</h4>
+                    <div class="float-chart-container">
+                        <div id="column-chart" class="float-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card caja mt-5">
+                <div class="card-body">
+                    <h4 class="card-title">PERSONALES PUNTUALES</h4>
+                    <div class="float-chart-container">
+                        <div id="column-chart1" class="float-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card caja mt-5">
         <div class="card-body">
             <h4 class="card-title text-center">ÁREAS</h4>
@@ -68,18 +90,42 @@
     </div>
     <input type="hidden" value="{{$areas}}" id="areas">
     <input type="hidden" value="{{$vacantes}}" id="vacantes">
-    <div class="card caja mt-5">
-        <div class="card-body">
-            <h4 class="card-title">CONVOCATORIAS</h4>
-            <div class="float-chart-container">
-                <div id="column-chart" class="float-chart"></div>
-            </div>
-        </div>
-    </div>
+    <input type="hidden" value="{{$empleados}}" id="empleados">
 @endsection
 @section('scripts')
     <script>
         $(function() {
+            let empleados = JSON.parse( document.getElementById('empleados').value);
+            var data1 = [];
+            for (const elemento of empleados){
+                let num =  Math.floor(Math.random() * (20 - 17 + 1)) + 17;
+                let item = [elemento.nombre, num];
+                data1.push(item);
+            }
+            if($("#column-chart1").length) {
+                $.plot("#column-chart1", [data1], {
+                    series: {
+                        bars: {
+                            show: true,
+                            barWidth: 0.6,
+                            align: "center"
+                        }
+                    },
+                    xaxis: {
+                        mode: "categories",
+                        tickLength: 0
+                    },
+                    grid: {
+                        borderWidth: 0,
+                        labelMargin: 10,
+                        hoverable: true,
+                        clickable: true,
+                        mouseActiveRadius: 6,
+                    }
+
+                });
+            }
+
             let vacantes = JSON.parse( document.getElementById('vacantes').value);
             var data = [];
             for (const elemento of vacantes){

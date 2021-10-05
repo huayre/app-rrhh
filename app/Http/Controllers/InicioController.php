@@ -12,6 +12,7 @@ class InicioController extends Controller
     public function inicio()
     {
         $numeroEmpleados = Persona::where('tipo_persona', 1)->count();
+        $empleados = Persona::all()->random(5);
         $numeroPostulantes = Persona::where('tipo_persona', 2)->count();
         $areas = Area::all('nombre');
         $vacantes = Vacante::all('nombre');
@@ -21,6 +22,7 @@ class InicioController extends Controller
                 'numeroEmpleados' => $numeroEmpleados,
                 'numeroPostulantes' => $numeroPostulantes,
                 'areas' => $areas,
+                'empleados' => $empleados,
                 'vacantes' => $vacantes
             ]);
     }

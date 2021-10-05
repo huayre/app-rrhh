@@ -439,11 +439,16 @@
                     <li class="nav-item d-none d-lg-block">
                         <a class="nav-link nav-link-hover" data-toggle="collapse" href="#sidebar-nomina" aria-expanded="false" aria-controls="sidebar-layouts">
                             <i class="icon-folder text-primary menu-icon"></i>
-                            <span class="menu-title">NÓMINA</span>
+                            <span class="menu-title">ASISTENCIA</span>
                         </a>
                         <div class="collapse" id="sidebar-nomina">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages\layout\compact-menu.html">NÓMINA</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('asistencia')}}">ASISTENCIA</a></li>
+                            </ul>
+                        </div>
+                        <div class="collapse" id="sidebar-nomina">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="{{route('reporte')}}">REPORTE</a></li>
                             </ul>
                         </div>
                     </li>

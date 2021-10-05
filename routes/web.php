@@ -7,6 +7,7 @@ use App\Http\Controllers\FuncionController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\AsistenciaController;
 
 
 
@@ -50,3 +51,7 @@ Route::post('postulante', [PersonaController::class, 'crearPostulante'])->name('
 Route::get('postulante/{id}', [PersonaController::class, 'aprobarPostulante']);
 
 Route::get('chamba', [VacanteController::class, 'listaVacantesTrabajo'])->name('chamba');
+
+Route::get('asistencia', [AsistenciaController::class, 'listaAsistencia'])->name('asistencia');
+Route::post('asistencia', [AsistenciaController::class, 'crearAsistencia'])->name('asistencia.create');
+Route::get('reporte', [AsistenciaController::class, 'reporteAsistencia'])->name('reporte');
