@@ -463,6 +463,17 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link nav-link-hover" data-toggle="collapse" href="#sidebar-venta-web" aria-expanded="false" aria-controls="sidebar-layouts">
+                            <i class="icon-speech menu-icon text-primary"></i>
+                            <span class="menu-title">VENTA WEB</span>
+                        </a>
+                        <div class="collapse" id="sidebar-venta-web">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="">PLATOS</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </nav>
             <!-- partial -->

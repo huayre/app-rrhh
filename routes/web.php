@@ -55,3 +55,5 @@ Route::get('chamba', [VacanteController::class, 'listaVacantesTrabajo'])->name('
 Route::get('asistencia', [AsistenciaController::class, 'listaAsistencia'])->name('asistencia');
 Route::post('asistencia', [AsistenciaController::class, 'crearAsistencia'])->name('asistencia.create');
 Route::get('reporte', [AsistenciaController::class, 'reporteAsistencia'])->name('reporte');
+
+Route::get('comelona', [VacanteController::class, 'listaVacantesTrabajo'])->name('chamba');
