@@ -18,6 +18,7 @@ class CreatePlatosTable extends Migration
             $table->string('nombre');
             $table->string('Descripcion');
             $table->decimal('precio',10,2);
+            $table->string('imagen');
             $table->integer('stock');
             $table->timestamps();
         });
