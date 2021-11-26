@@ -42,6 +42,7 @@ class PlatosController extends Controller
             $plato = Plato::find($id);
             $plato->delete();
 
+
         } catch (\Exception $e){
             $mensaje = 'errors';
             $recurso = $e->getMessage();
@@ -49,5 +50,12 @@ class PlatosController extends Controller
         return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
     }
 
+
+
+
+    public function paginaWeb() {
+        $platos = Plato::orderBy('created_at','desc')->get();
+        return view('web.index')->with(['platos' => $platos]);
+    }
 
 }
