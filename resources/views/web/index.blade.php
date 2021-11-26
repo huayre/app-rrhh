@@ -8,6 +8,12 @@
     <title>Simple House Template</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
     <link href="{{asset('web/css/templatemo-style.css')}}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid">
@@ -18,28 +24,27 @@
             <div class="tm-header">
                 <div class="row tm-header-inner">
                     <div class="col-md-6 col-12">
-                        <img src="{{asset('logo.jpg')}}" alt="Logo" class="tm-site-logo" style="height: 150px;width: 250px;border-radius: 50%;" />
+{{--                        <img src="{{asset('logo.jpg')}}" alt="Logo" class="tm-site-logo" style="height: 150px;width: 250px;border-radius: 50%;" />--}}
                         <div class="tm-site-text-box">
-                            <h1 class="tm-site-title" style="color: #FAFA00">Recreo Restaurant </h1>
-                            <h6 class="tm-site-title" style="color: #FAFA00">La Colpa</h6>
+                            <h1 class="tm-site-title" style="color: #FAFA00; font-size: 60px;font-family: 'Kaushan Script', cursive;">Recreo Restaurant </h1>
+                            <h6 class="tm-site-title" style="color: whitesmoke; font-size: 70px;font-family: 'Kaushan Script', cursive;">La Colpa</h6>
                         </div>
                     </div>
                     <nav class="col-md-6 col-12 tm-nav">
                         <ul class="tm-nav-ul">
-                            <li class="tm-nav-li"><a style="color: #FAFA00" href="index.html" class="tm-nav-link active">Home</a></li>
-                            <li class="tm-nav-li"><a style="color: #FAFA00" href="about.html" class="tm-nav-link">About</a></li>
-                            <li class="tm-nav-li"><a style="color: #FAFA00" href="contact.html" class="tm-nav-link">Contact</a></li>
+                            <li class="tm-nav-li"><a style="color: #FAFA00" href="index.html" class="tm-nav-link active">Inicio</a></li>
+                            <li class="tm-nav-li"><a style="color: #FAFA00" href="about.html" class="tm-nav-link">Nosotros</a></li>
+                            <li class="tm-nav-li"><a style="color: #FAFA00" href="contact.html" class="tm-nav-link">Contactos</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
-
-    <main>
-        <header class="row tm-welcome-section">
-            <h2 class="col-12 text-center tm-section-title">Bienvenido a la Colpa, donde puedes hacer tus pedidos al instante</h2>
-        </header>
+    <div style="background-color: #FAFA00;padding: 10px">
+        <h2 class="col-12 text-center tm-section-title" style="font-family:Helvetica Neue ">Bienvenido a la Colpa, donde puedes hacer tus pedidos al instante</h2>
+    </div>
+    <main style="background-color: white">
         <div class="tm-paging-links">
             <nav>
                 <ul>
@@ -51,10 +56,10 @@
         </div>
         <div class="row" style="padding: 10px">
             @foreach($platos as $plato)
-                <article class="col-md-4  tm-gallery-item h-100">
-                    <figure style="border: 1px #0ba1b5 solid">
+                <article class="col-md-4  tm-gallery-item " style="width: 100%;">
+                    <figure style="border: 1px #0ba1b5 solid;background-color: #A2D9CE;border-radius: 10px">
                         <img src="{{$plato->imagen}}" alt="Image" class="img-fluid tm-gallery-img" />
-                        <figcaption>
+                        <figcaption style="text-align: center">
                             <h4 class="tm-gallery-title">{{$plato->nombre}}</h4>
                             <p class="tm-gallery-description">{{$plato->descripcion}}</p>
                             <p class="tm-gallery-price">{{$plato->precio}}</p>
