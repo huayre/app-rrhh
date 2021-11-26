@@ -13,44 +13,45 @@
             height: 350px;
         }
     </style>
-    @include('empleado.create_modal')
+    @include('platos.create_modal')
     <div>
-        <button type="button" class="btn btn-primary btn-rounded btn-fw mb-3" onclick="abrirModalEmpleado()">Nuevo
-            Empleado
+        <button type="button" class="btn btn-primary btn-rounded btn-fw mb-3" onclick="abrirModalPlato()">Nuevo
+            Plato
         </button>
     </div>
-    <div class="text-center">
-        <input type="date" class="form-control-sm" id="fechaInicio">
-        <input type="date" class="form-control-sm" id="fechaFin">
-        <button class="btn btn-success">Buscar</button>
-    </div>
+{{--    <div class="text-center">--}}
+{{--        <input type="date" class="form-control-sm" id="fechaInicio">--}}
+{{--        <input type="date" class="form-control-sm" id="fechaFin">--}}
+{{--        <button class="btn btn-success">Buscar</button>--}}
+{{--    </div>--}}
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
-                <table class="table table-bordered" id="tabla_empleados">
+                <table class="table table-bordered" id="tabla_platos">
                     <thead>
                     <tr>
-                        <th>Area</th>
-                        <th>Nombres</th>
-                        <th>DNI</th>
-                        <th>Nro. Celular</th>
-                        <th>Correo</th>
+                        <th>Plato</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Imagen</th>
+                        <th>Cantidad</th>
                         <th>OPCIONES</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($empleados as $empleado)
+                    @foreach($platos as $plato)
                         <tr>
-                            <td>{{$empleado->area->nombre}}</td>
-                            <td>{{$empleado->nombre . ' '. $empleado->apellido}}</td>
-                            <td>{{$empleado->num_dni}}</td>
-                            <td>{{$empleado->num_celular}}</td>
-                            <td>{{$empleado->correo}}</td>
+                            <td>{{$plato->nombre}}</td>
+                            <td>{{$plato->descripcion}}</td>
+                            <td>{{$plato->precio}}</td>
                             <td>
-                                <button class="btn btn-default p-1" onclick="eliminarEmpleado('{{$empleado->id}}')"><i
+                                <img src="{{$plato->imagen}}">
+                            </td>
+                            <td>{{$plato->stock}}</td>
+                            <td>
+                                <button class="btn btn-default p-1" onclick="eliminarEmpleado('{{$plato->id}}')"><i
                                         class="fa fa-trash-o text-danger"></i></button>
                                 <button class="btn btn-default p-1"><i class="fa fa-edit text-dark"></i></button>
-                                <a href="{{$empleado->url_copia_dni}}" target="_blank" class="btn btn-default p-1"><i class="fa fa-address-card text-primary"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -61,5 +62,5 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="{{asset('js/empleado.js')}}"></script>
+    <script src="{{asset('js/plato.js')}}"></script>
 @endsection

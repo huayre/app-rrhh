@@ -470,7 +470,7 @@
                         </a>
                         <div class="collapse" id="sidebar-venta-web">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="">PLATOS</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('platos')}}">PLATOS</a></li>
                             </ul>
                         </div>
                     </li>

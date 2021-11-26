@@ -8,6 +8,7 @@ use App\Http\Controllers\InicioController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AsistenciaController;
+use App\Http\Controllers\PlatosController;
 
 
 
@@ -27,6 +28,7 @@ Route::get('/', function () {
 });
 Route::get('inicio', [InicioController::class, 'inicio'])->name('inicio');
 
+Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('login', [AuthController::class, 'authenticate'])->name('login');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -56,4 +58,5 @@ Route::get('asistencia', [AsistenciaController::class, 'listaAsistencia'])->name
 Route::post('asistencia', [AsistenciaController::class, 'crearAsistencia'])->name('asistencia.create');
 Route::get('reporte', [AsistenciaController::class, 'reporteAsistencia'])->name('reporte');
 
-Route::get('platos', [VacanteController::class, 'listaVacantesTrabajo'])->name('platos');
+Route::get('platos', [PlatosController::class, 'listaPlatos'])->name('platos');
+Route::post('platos', [PlatosController::class, 'crearPlato'])->name('platos');

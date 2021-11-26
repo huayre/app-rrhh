@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //AreaSeeder::class;
+        AreaSeeder::class;
         \App\Models\Persona::factory(20)->create();
         //\App\Models\User::factory(1)->create();
     }

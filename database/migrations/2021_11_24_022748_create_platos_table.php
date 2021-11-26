@@ -16,7 +16,7 @@ class CreatePlatosTable extends Migration
         Schema::create('platos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('Descripcion');
+            $table->string('descripcion');
             $table->decimal('precio',10,2);
             $table->string('imagen');
             $table->integer('stock');
