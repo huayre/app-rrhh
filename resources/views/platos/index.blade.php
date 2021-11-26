@@ -49,7 +49,7 @@
                             </td>
                             <td>{{$plato->stock}}</td>
                             <td>
-                                <button class="btn btn-default p-1" onclick="eliminarEmpleado('{{$plato->id}}')"><i
+                                <button class="btn btn-default p-1" onclick="eliminarPlato('{{$plato->id}}')"><i
                                         class="fa fa-trash-o text-danger"></i></button>
                                 <button class="btn btn-default p-1"><i class="fa fa-edit text-dark"></i></button>
                             </td>
