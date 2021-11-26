@@ -36,4 +36,9 @@ class PlatosController extends Controller
         return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
     }
 
+    public function paginaWeb() {
+        $platos = Plato::orderBy('created_at','desc')->get();
+        return view('web.index')->with(['platos' => $platos]);
+    }
+
 }
