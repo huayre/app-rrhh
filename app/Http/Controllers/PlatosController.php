@@ -35,6 +35,23 @@ class PlatosController extends Controller
         }
         return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
     }
+    public  function eliminarPlato($id){
+        $mensaje = 'success';
+        $recurso = '';
+        try {
+            $plato = Plato::find($id);
+            $plato->delete();
+
+
+        } catch (\Exception $e){
+            $mensaje = 'errors';
+            $recurso = $e->getMessage();
+        }
+        return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
+    }
+
+
+
 
     public function paginaWeb() {
         $platos = Plato::orderBy('created_at','desc')->get();

@@ -15,5 +15,5 @@ class Plato extends Model
         'imagen',
         'stock'
     ];
-
+    
 }

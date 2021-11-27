@@ -1,5 +1,5 @@
-@extends('plantilla.index')
-@section('contenido')
+
+<?php $__env->startSection('contenido'); ?>
     <style>
         .avatar_diseño {
             width: 100px;
@@ -13,17 +13,17 @@
             height: 350px;
         }
     </style>
-    @include('platos.create_modal')
+    <?php echo $__env->make('platos.create_modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div>
         <button type="button" class="btn btn-primary btn-rounded btn-fw mb-3" onclick="abrirModalPlato()">Nuevo
             Plato
         </button>
     </div>
-{{--    <div class="text-center">--}}
-{{--        <input type="date" class="form-control-sm" id="fechaInicio">--}}
-{{--        <input type="date" class="form-control-sm" id="fechaFin">--}}
-{{--        <button class="btn btn-success">Buscar</button>--}}
-{{--    </div>--}}
+
+
+
+
+
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
@@ -39,28 +39,30 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($platos as $plato)
+                    <?php $__currentLoopData = $platos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $plato): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td>{{$plato->nombre}}</td>
-                            <td>{{$plato->descripcion}}</td>
-                            <td>{{$plato->precio}}</td>
+                            <td><?php echo e($plato->nombre); ?></td>
+                            <td><?php echo e($plato->descripcion); ?></td>
+                            <td><?php echo e($plato->precio); ?></td>
                             <td>
-                                <img src="{{$plato->imagen}}">
+                                <img src="<?php echo e($plato->imagen); ?>">
                             </td>
-                            <td>{{$plato->stock}}</td>
+                            <td><?php echo e($plato->stock); ?></td>
                             <td>
-                                <button class="btn btn-default p-1" onclick="eliminarPlato('{{$plato->id}}')"><i
+                                <button class="btn btn-default p-1" onclick="eliminarPlato('<?php echo e($plato->id); ?>')"><i
                                         class="fa fa-trash-o text-danger"></i></button>
                                 <button class="btn btn-default p-1"><i class="fa fa-edit text-dark"></i></button>
                             </td>
                         </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-@endsection
-@section('scripts')
-    <script src="{{asset('js/plato.js')}}"></script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
+    <script src="<?php echo e(asset('js/plato.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('plantilla.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\proyectosistemasinformacion\app-rrhh\resources\views/platos/index.blade.php ENDPATH**/ ?>

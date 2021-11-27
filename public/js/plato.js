@@ -113,7 +113,7 @@ function guardarPlato() {
     })
 }
 
-function eliminarEmpleado(idCliente) {
+function eliminarPlato(idPlato) {
     Swal.fire({
         title: '¿Está seguro?',
         text: "¡No podrás revertir esto!",
@@ -128,12 +128,12 @@ function eliminarEmpleado(idCliente) {
         if (result.isConfirmed) {
             $.ajax({
                 method: 'DELETE',
-                url: 'empleado/' + idCliente,
+                url: 'platos/' + idPlato,
                 success: function (datosServidor) {
                     if (datosServidor.mensaje == 'success') {
                         Swal.fire({
                             title: 'Borrado!',
-                            text: 'el empleado fue eliminado..',
+                            text: 'el plato fue eliminado..',
                             icon: 'success',
                             customClass: 'swal-height'
                         }).then((result) => {
@@ -155,7 +155,7 @@ function eliminarEmpleado(idCliente) {
     })
 }
 
-function  BuscarEmpleado(){
+function  BuscarPlato(){
     let fechaInicio = document.getElementById('fechaInicio');
     let fechaFin = document.getElementById('fechaFin');
 
