@@ -61,5 +61,8 @@ Route::get('reporte', [AsistenciaController::class, 'reporteAsistencia'])->name(
 Route::get('comelona', [PlatosController::class, 'paginaWeb'])->name('comelona');
 Route::get('platos', [PlatosController::class, 'listaPlatos'])->name('platos');
 Route::post('platos', [PlatosController::class, 'crearPlato'])->name('platos');
-
 Route::delete('platos/{id}', [PlatosController::class, 'eliminarPlato'])->name('platoss');
+
+Route::get('cliente', [PersonaController::class, 'listarCliente'])->name('cliente');
+Route::post('cliente', [PersonaController::class, 'crearCliente'])->name('cliente');
+Route::delete('cliente/{id}', [PersonaController::class, 'eliminarCliente'])->name('cliente');

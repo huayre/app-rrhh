@@ -12,6 +12,7 @@ class PlatosController extends Controller
         $platos = Plato::orderBy('created_at','desc')->get();
         return view('platos.index')->with(['platos' => $platos]);
     }
+    
 
     public function crearPlato(Request $request)
     {

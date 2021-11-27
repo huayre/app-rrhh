@@ -474,6 +474,17 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link nav-link-hover" data-toggle="collapse" href="#sidebar-empleados" aria-expanded="false" aria-controls="sidebar-layouts">
+                            <i class="icon-people menu-icon text-primary"></i>
+                            <span class="menu-title">CLIENTES</span>
+                        </a>
+                        <div class="collapse" id="sidebar-empleados">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="{{asset('cliente')}}">CLIENTES</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </nav>
             <!-- partial -->
