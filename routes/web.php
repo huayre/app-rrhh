@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\PlatosController;
+use App\Http\Controllers\ReporteController;
 
 
 
@@ -63,3 +64,5 @@ Route::get('platos', [PlatosController::class, 'listaPlatos'])->name('platos');
 Route::post('platos', [PlatosController::class, 'crearPlato'])->name('platos');
 
 Route::delete('platos/{id}', [PlatosController::class, 'eliminarPlato'])->name('platoss');
+
+Route::get('reporte-platos', [ReporteController::class, 'reportePlatos'])->name('reporte-platos');

@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Persona;
+use App\Models\Plato;
+use Database\Factories\PersonaFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,8 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        AreaSeeder::class;
-        \App\Models\Persona::factory(20)->create();
+//        $this->call(
+//        AreaSeeder::class
+//        );
+        //Persona::factory()->count(50)->create();
+        //Persona::factory()->count(50)->create();
+        Plato::factory()->count(20)->create();
         //\App\Models\User::factory(1)->create();
     }
 }

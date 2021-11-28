@@ -25,6 +25,7 @@
 
     <link rel="stylesheet" href="<?php echo e(asset('template\vendors\datatables.net-bs4\dataTables.bootstrap4.css')); ?>">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <style>
         .nav-link-hover:hover{
             border-left: #03a9f3 solid 4px;
@@ -474,6 +475,17 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link nav-link-hover" data-toggle="collapse" href="#sidebar-reporte" aria-expanded="false" aria-controls="sidebar-layouts">
+                            <i class="icon-speech menu-icon text-primary"></i>
+                            <span class="menu-title">REPORTES</span>
+                        </a>
+                        <div class="collapse" id="sidebar-reporte">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('reporte-platos')); ?>">PEDIDOS PLATOS</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </nav>
             <!-- partial -->
@@ -541,6 +553,9 @@
 <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js"></script>
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
     $.ajaxSetup({
         headers: {
