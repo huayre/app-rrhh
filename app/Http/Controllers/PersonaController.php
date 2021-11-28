@@ -114,5 +114,49 @@ class PersonaController extends Controller
         }
         return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
     }
+ //...................
+    public function listarCliente() {
+        $clientes = Persona::orderBy('created_at','desc')->get();
+        return view('cliente.index')->with(['cliente' => $clientes]);
+       
+    }
+
+    public function crearCliente(Request $request) {
+        $mensaje = 'success';
+        try {
+            
+            $recurso = Persona::create([
+                'nombre' => $request->nombre,
+                'apellido' => $request->apellido,
+                
+                'direccion' => $request->direccion,
+                'num_celular' => $request->num_celular,
+                'referencia' => $request->referencia,
+                
+            
+            
+                'tipo_persona' => 3,
+                
+                
+            ]);
+        } catch (\Exception $e) {
+            $mensaje = 'errors';
+            $recurso = $e->getMessage();
+        }
+        return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
+    }
+    public  function eliminarCliente($id){
+        $mensaje = 'success';
+        $recurso = '';
+        try {
+            $cliente = Persona::find($id);
+            $cliente->delete();
+
+        } catch (\Exception $e){
+            $mensaje = 'errors';
+            $recurso = $e->getMessage();
+        }
+        return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
+    }
 
 }
