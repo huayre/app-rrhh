@@ -23,10 +23,7 @@ class PedidoPlatoFactory extends Factory
     public function definition()
     {
         return [
-//            'pedido_id',
-//            'plato_id',
-//            'cantidad',
-//            'precio'
+
         ];
     }
 }

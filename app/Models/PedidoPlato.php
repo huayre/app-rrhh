@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PedidoPlato extends Model
 {
     use HasFactory;
+    protected $table = 'pedido_plato';
     protected $fillable = [
         'pedido_id',
         'plato_id',
