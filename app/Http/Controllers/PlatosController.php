@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plato;
+use App\Models\Persona;
+use App\Models\Pedido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -57,6 +59,17 @@ class PlatosController extends Controller
     public function paginaWeb() {
         $platos = Plato::orderBy('created_at','desc')->get();
         return view('web.index')->with(['platos' => $platos]);
+    }
+
+    //pedidos
+    public function listaPedidos()
+    {
+        $persona = Persona::all('id', 'nombre');
+        $pedido = Pedido::with('persona')
+            
+            ->orderBy('created_at','desc')
+            ->get();
+        return view('pedidos.index')->with(['persona' => $persona,'pedido' => $pedido]);
     }
 
 }

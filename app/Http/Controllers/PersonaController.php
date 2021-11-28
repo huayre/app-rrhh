@@ -153,5 +153,7 @@ class PersonaController extends Controller
         }
         return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
     }
-
+    // pedidos
+  
+  
 }

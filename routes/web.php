@@ -67,3 +67,6 @@ Route::delete('platos/{id}', [PlatosController::class, 'eliminarPlato'])->name('
 Route::get('cliente', [PersonaController::class, 'listarCliente'])->name('cliente');
 Route::post('cliente', [PersonaController::class, 'crearCliente'])->name('cliente');
 Route::delete('cliente/{id}', [PersonaController::class, 'eliminarCliente'])->name('cliente');
+
+Route::get('pedidos', [PlatosController::class, 'listapedidos'])->name('pedidos');
+//Route::post('pedidos', [PlatosController::class, 'crearPlatos'])->name('cliente');

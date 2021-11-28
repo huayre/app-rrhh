@@ -44,7 +44,7 @@
     <div style="background-color: #FAFA00;padding: 10px">
         <h2 class="col-12 text-center tm-section-title" style="font-family:Helvetica Neue ">Bienvenido a la Colpa, donde puedes hacer tus pedidos al instante</h2>
     </div>
-    <main style="background-color: white">
+    <main>
         <div class="tm-paging-links">
             <nav>
                 <ul>
@@ -54,173 +54,25 @@
                 </ul>
             </nav>
         </div>
-        <div class="row" style="padding: 10px">
+        <button  style="margin-left:50px;border-radius: 10px;border: 0;background-color: #0c85d0;text-decoration: none;cursor: pointer;padding: 15px 30px 15px 30px;margin-bottom: 20px" onclick="apenCarrito()">CONFIRMAR PEDIDO</button>
+        <div class="row">
             <?php $__currentLoopData = $platos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $plato): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <article class="col-md-4  tm-gallery-item " style="width: 100%;">
-                    <figure style="border: 1px #0ba1b5 solid;background-color: #A2D9CE;border-radius: 10px">
+                <article class="col-md-4  tm-gallery-item " style="height:100%;margin-bottom: 20px;">
+                    <figure style="border: 1px #0ba1b5 solid;background-color: #D4EFDF;border-radius: 10px;padding-bottom: 10px">
                         <img src="<?php echo e($plato->imagen); ?>" alt="Image" class="img-fluid tm-gallery-img" />
                         <figcaption style="text-align: center">
                             <h4 class="tm-gallery-title"><?php echo e($plato->nombre); ?></h4>
                             <p class="tm-gallery-description"><?php echo e($plato->descripcion); ?></p>
-                            <p class="tm-gallery-price"><?php echo e($plato->precio); ?></p>
+                            <p class="tm-gallery-price" style="margin-bottom: 10px"><?php echo e($plato->precio); ?></p>
+                             <button class="btn btn-warning"  style="border-radius:15px;cursor:pointer;color:black;margin-bottom:5px;outline:none;border: 0;text-decoration:none;background-color: #FAFA00;padding: 10px 40px 10px 40px" onclick="seleccionarPlato(<?php echo e($plato->id); ?>)">Seleccionar</button>
+                            <br>
+                            <input type="number" style="margin: auto auto;width: 50px;display: none" id="cajaCantidad<?php echo e($plato->id); ?>">
                         </figcaption>
                     </figure>
                 </article>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
 
-        <!-- Gallery -->
-        <div class="row tm-gallery">
-            <!-- gallery page 1 -->
-            <div id="tm-gallery-page-pizza" class="tm-gallery-page">
-
-            </div> <!-- gallery page 1 -->
-
-            <!-- gallery page 2 -->
-            <div id="tm-gallery-page-salad" class="tm-gallery-page hidden">
-                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <figure>
-                        <img src="img/gallery/04.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                        <figcaption>
-                            <h4 class="tm-gallery-title">Salad Menu One</h4>
-                            <p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
-                            <p class="tm-gallery-price">$25</p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <figure>
-                        <img src="img/gallery/03.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                        <figcaption>
-                            <h4 class="tm-gallery-title">Second Title Salad</h4>
-                            <p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
-                            <p class="tm-gallery-price">$30</p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <figure>
-                        <img src="img/gallery/05.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                        <figcaption>
-                            <h4 class="tm-gallery-title">Third Salad Item</h4>
-                            <p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
-                            <p class="tm-gallery-price">$45</p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <figure>
-                        <img src="img/gallery/01.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                        <figcaption>
-                            <h4 class="tm-gallery-title">Superior Salad</h4>
-                            <p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
-                            <p class="tm-gallery-price">$50</p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <figure>
-                        <img src="img/gallery/08.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                        <figcaption>
-                            <h4 class="tm-gallery-title">Sed ultricies dui</h4>
-                            <p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
-                            <p class="tm-gallery-price">$55 / $60</p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <figure>
-                        <img src="img/gallery/07.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                        <figcaption>
-                            <h4 class="tm-gallery-title">Maecenas eget justo</h4>
-                            <p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
-                            <p class="tm-gallery-price">$75</p>
-                        </figcaption>
-                    </figure>
-                </article>
-            </div> <!-- gallery page 2 -->
-
-            <!-- gallery page 3 -->
-            <div id="tm-gallery-page-noodle" class="tm-gallery-page hidden">
-                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <figure>
-                        <img src="img/gallery/08.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                        <figcaption>
-                            <h4 class="tm-gallery-title">Noodle One</h4>
-                            <p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                            <p class="tm-gallery-price">$12.50</p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <figure>
-                        <img src="img/gallery/07.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                        <figcaption>
-                            <h4 class="tm-gallery-title">Noodle Second</h4>
-                            <p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                            <p class="tm-gallery-price">$15.50</p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <figure>
-                        <img src="img/gallery/06.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                        <figcaption>
-                            <h4 class="tm-gallery-title">Third Soft Noodle</h4>
-                            <p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                            <p class="tm-gallery-price">$20.50</p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <figure>
-                        <img src="img/gallery/05.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                        <figcaption>
-                            <h4 class="tm-gallery-title">Aliquam sagittis</h4>
-                            <p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                            <p class="tm-gallery-price">$30.25</p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <figure>
-                        <img src="img/gallery/04.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                        <figcaption>
-                            <h4 class="tm-gallery-title">Maecenas eget justo</h4>
-                            <p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                            <p class="tm-gallery-price">$35.50</p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <figure>
-                        <img src="img/gallery/03.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                        <figcaption>
-                            <h4 class="tm-gallery-title">Quisque et felis eros</h4>
-                            <p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                            <p class="tm-gallery-price">$40.50</p>
-                        </figcaption>
-                    </figure>
-                </article>
-
-            </div> <!-- gallery page 3 -->
-        </div>
-        <div class="tm-section tm-container-inner">
-            <div class="row">
-                <div class="col-md-6">
-                    <figure class="tm-description-figure">
-                        <img src="img/img-01.jpg" alt="Image" class="img-fluid" />
-                    </figure>
-                </div>
-                <div class="col-md-6">
-                    <div class="tm-description-box">
-                        <h4 class="tm-gallery-title">Maecenas nulla neque</h4>
-                        <p class="tm-mb-45">Redistributing this template as a downloadable ZIP file on any template collection site is strictly prohibited. You will need to <a rel="nofollow" href="https://templatemo.com/contact">talk to us</a> for additional permissions about our templates. Thank you.</p>
-                        <a href="about.html" class="tm-btn tm-btn-default tm-right">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 
     <footer class="tm-footer text-center">
@@ -228,9 +80,14 @@
 
             | Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
     </footer>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <?php echo $__env->make('web.create_modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </div>
 <script src="<?php echo e(asset('web/js/jquery.min.js')); ?>"></script>
 <script src="<?php echo e(asset('web/js/parallax.min.js')); ?>"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function(){
         // Handle click on paging links
@@ -244,7 +101,17 @@
             $(this).addClass("active");
         });
     });
+
+    function seleccionarPlato(idplato) {
+        cajaCantidad = document.getElementById('cajaCantidad' + idplato);
+        cajaCantidad.style.display = 'block';
+    }
+    function apenCarrito() {
+        $('#carrito-compras').modal('show');
+    }
+
 </script>
 </body>
+
 </html>
 <?php /**PATH C:\xampp\htdocs\proyectosistemasinformacion\app-rrhh\resources\views/web/index.blade.php ENDPATH**/ ?>

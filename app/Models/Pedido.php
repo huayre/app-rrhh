@@ -14,5 +14,8 @@ class Pedido extends Model
         'monto',
         'hora_entrega',
     ];
+    public function persona() {
+        return $this->belongsTo(Persona::class);
+    }
 
 }

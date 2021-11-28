@@ -16,8 +16,7 @@
                     <div class="col-md-6">
                         <label>Nombre:</label>
                         <input type="text" class="form-control border-primary" name="nombre" id="nombre">
-                        
-                       
+                        <input type="hidden" class="form-control border-primary" name="nombre" id="nombre">
                         </select>
                     </div>
 
