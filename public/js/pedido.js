@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#tabla_pedidos').DataTable(
+    $('#tabla_pedido').DataTable(
         {
             dom: 'Bfrtip',
             buttons: [
@@ -98,7 +98,7 @@ function validarDatosCliente() {
 
 }
 
-function guardarEmpleado() {
+function guardarPedido() {
     let formularioEmpelados = document.getElementById('formulario_empleado');
     let datos = new FormData(formularioEmpelados);
     let botonCrearCliente = document.getElementById('btn_crear_cliente');

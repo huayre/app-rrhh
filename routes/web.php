@@ -12,6 +12,7 @@ use App\Http\Controllers\PlatosController;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
