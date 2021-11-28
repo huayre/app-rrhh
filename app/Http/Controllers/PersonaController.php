@@ -116,28 +116,23 @@ class PersonaController extends Controller
     }
  //...................
     public function listarCliente() {
-        $clientes = Persona::orderBy('created_at','desc')->get();
+        $clientes = Persona::orderBy('created_at','desc')
+            ->where('tipo_persona',3)->get();
         return view('cliente.index')->with(['cliente' => $clientes]);
-       
     }
 
     public function crearCliente(Request $request) {
         $mensaje = 'success';
         try {
-            
+
             $recurso = Persona::create([
                 'nombre' => $request->nombre,
                 'apellido' => $request->apellido,
-                
+
                 'direccion' => $request->direccion,
                 'num_celular' => $request->num_celular,
                 'referencia' => $request->referencia,
-                
-            
-            
                 'tipo_persona' => 3,
-                
-                
             ]);
         } catch (\Exception $e) {
             $mensaje = 'errors';

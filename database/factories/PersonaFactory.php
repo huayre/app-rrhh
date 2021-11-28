@@ -30,11 +30,11 @@ class PersonaFactory extends Factory
             'correo' => $this->faker->email,
             'url_linkedin' => $this->faker->name . 'linkedin.com',
             'url_copia_dni' => '',
-            'salario' => rand(930,8000),
+            'salario' => rand(930, 8000),
             'fecha_nacimiento' => date('Y-m-d'),
             'avatar' => '',
-            'tipo_persona' => 1,
-            'area_id' => 1,
+            'tipo_persona' => 3,
+            'area_id' => rand(1, 7),
         ];
     }
 }

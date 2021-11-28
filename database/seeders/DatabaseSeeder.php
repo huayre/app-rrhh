@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pedido;
 use App\Models\Persona;
 use App\Models\Plato;
+use App\Models\User;
 use Database\Factories\PersonaFactory;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Database\Eloquent\Factories\Sequence;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -16,12 +18,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        $this->call(
-//        AreaSeeder::class
-//        );
-        //Persona::factory()->count(50)->create();
-        //Persona::factory()->count(50)->create();
-        Plato::factory()->count(20)->create();
-        //\App\Models\User::factory(1)->create();
+        //1
+        $this->call(
+        [
+            AreaSeeder::class,
+            UserSeeder::class,
+            PlatoSeeder::class
+        ]);
+        Persona::factory()->count(1000)->create();
+        Pedido::factory()->count(3000)->create();
+        //2
+
     }
 }

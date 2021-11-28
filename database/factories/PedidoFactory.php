@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Plato;
+use App\Models\Pedido;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PlatoFactory extends Factory
+class PedidoFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Plato::class;
+    protected $model = Pedido::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,9 @@ class PlatoFactory extends Factory
     public function definition()
     {
         return [
-
+            'persona_id' =>rand(1,1000),
+            'monto'=>rand(10,200),
+            'hora_entrega'=> date('Y-m-d H:i:s')
         ];
     }
 }
