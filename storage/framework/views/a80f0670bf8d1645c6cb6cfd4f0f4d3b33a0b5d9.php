@@ -31,3 +31,4 @@
         </div>
     </div>
 </div>
+<?php /**PATH /var/www/resources/views/funciones/create.blade.php ENDPATH**/ ?>
