@@ -22,25 +22,62 @@
         </div>
     </div>
     <input type="hidden" value="{{json_encode($reportePlatos)}}" id="platos">
+    <p style="text-align: center;margin-top: 20px;color: #0c85d0;font-size: 30px">LINEA DEL TIEMPO</p>
+    <div class="row">
+        <select class="form-control col-md-6 border-primary">
+            @foreach($reportePlatos as $plato)
+                <option >{{$plato['nombre']}}</option>
+            @endforeach
+        </select>
+        <button class="btn btn-success text-center col-md-6"  onclick="generarReporte()">GENERAR</button>
+    </div>
+
+    <div class="caja" style="margin-top: 20px">
+        <canvas id="myChart"></canvas>
+    </div>
 @endsection
 @section('scripts')
-{{--    <script>--}}
-{{--        $('#daterange').daterangepicker(--}}
-{{--            {--}}
-{{--                "locale": {--}}
-{{--                    "format": "MM-DD-YYYY",--}}
-{{--                    "separator": " - ",--}}
-{{--            }}--}}
-{{--        );--}}
-{{--        function  generarReporte() {--}}
-{{--            let daterange = document.getElementById('daterange').value;--}}
-{{--            console.log(daterange);--}}
-{{--        }--}}
-
-{{--    </script>--}}
-
-
     <script>
+        let myChart;
+        $(document).ready(function (){
+            grafica2();
+        });
+        function  generarReporte(){
+            $('#myChart').hide();
+            myChart.destroy();
+            grafica2();
+            setTimeout(function(){
+                $('#myChart').show();
+            }, 2000);
+        }
+        function getRandomArbitrary(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+        function grafica2 (){
+            const labels = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+            array = [];
+            for (let i=0;i<=10;i++) {
+                array.push(getRandomArbitrary(8000, 20000))
+            }
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data:array,
+                }]
+            };
+            const config = {
+                type: 'line',
+                data: data,
+                options: {}
+            };
+             myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+        }
         (function($) {
             'use strict';
             let platos = JSON.parse( document.getElementById('platos').value);

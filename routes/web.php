@@ -73,3 +73,4 @@ Route::delete('cliente/{id}', [PersonaController::class, 'eliminarCliente'])->na
 Route::get('pedidos', [PlatosController::class, 'listapedidos'])->name('pedidos');
 
 Route::get('reporte-platos', [ReporteController::class, 'reportePlatos'])->name('reporte-platos');
+Route::get('reporte-pedidos', [ReporteController::class, 'reportePedidos'])->name('reporte-pedidos');

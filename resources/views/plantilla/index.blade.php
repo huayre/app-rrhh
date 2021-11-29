@@ -25,6 +25,8 @@
 
     <link rel="stylesheet" href="{{asset('template\vendors\datatables.net-bs4\dataTables.bootstrap4.css')}}">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <style>
         .nav-link-hover:hover{
             border-left: #03a9f3 solid 4px;
@@ -500,6 +502,11 @@
                                 <li class="nav-item"> <a class="nav-link" href="{{asset('reporte-platos')}}">REPORTE PLATOS</a></li>
                             </ul>
                         </div>
+                        <div class="collapse" id="sidebar-reporte">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="{{asset('reporte-pedidos')}}">REPORTE PEDIDOS</a></li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </nav>
@@ -568,6 +575,10 @@
 <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js"></script>
 
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     $.ajaxSetup({
         headers: {
