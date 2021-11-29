@@ -490,6 +490,17 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link nav-link-hover" data-toggle="collapse" href="#sidebar-reporte" aria-expanded="false" aria-controls="sidebar-layouts">
+                            <i class="icon-people menu-icon text-primary"></i>
+                            <span class="menu-title">REPORTES</span>
+                        </a>
+                        <div class="collapse" id="sidebar-reporte">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="{{asset('reporte-platos')}}">REPORTE PLATOS</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </nav>
             <!-- partial -->

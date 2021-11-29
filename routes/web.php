@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\PlatosController;
+use App\Http\Controllers\ReporteController;
 
 
 
@@ -70,4 +71,5 @@ Route::post('cliente', [PersonaController::class, 'crearCliente'])->name('client
 Route::delete('cliente/{id}', [PersonaController::class, 'eliminarCliente'])->name('cliente');
 
 Route::get('pedidos', [PlatosController::class, 'listapedidos'])->name('pedidos');
-//Route::post('pedidos', [PlatosController::class, 'crearPlatos'])->name('cliente');
+
+Route::get('reporte-platos', [ReporteController::class, 'reportePlatos'])->name('reporte-platos');

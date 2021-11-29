@@ -473,6 +473,11 @@
                                 <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('platos')); ?>">PLATOS</a></li>
                             </ul>
                         </div>
+                        <div class="collapse" id="sidebar-venta-web">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('pedidos')); ?>">PEDIDOS</a></li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="nav-item d-none d-lg-block">
                         <a class="nav-link nav-link-hover" data-toggle="collapse" href="#sidebar-empleados" aria-expanded="false" aria-controls="sidebar-layouts">
@@ -482,6 +487,17 @@
                         <div class="collapse" id="sidebar-empleados">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="<?php echo e(asset('cliente')); ?>">CLIENTES</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link nav-link-hover" data-toggle="collapse" href="#sidebar-reporte" aria-expanded="false" aria-controls="sidebar-layouts">
+                            <i class="icon-people menu-icon text-primary"></i>
+                            <span class="menu-title">REPORTES</span>
+                        </a>
+                        <div class="collapse" id="sidebar-reporte">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="<?php echo e(asset('reporte-platos')); ?>">REPORTE PLATOS</a></li>
                             </ul>
                         </div>
                     </li>
