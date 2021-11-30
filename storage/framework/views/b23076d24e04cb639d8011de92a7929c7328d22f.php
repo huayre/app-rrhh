@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container-fluid">
+<div class="">
     <!-- Top box -->
     <!-- Logo & Site Name -->
     <div class="placeholder">
@@ -41,8 +41,8 @@
             </div>
         </div>
     </div>
-    <div style="background-color: #FAFA00;padding: 10px">
-        <h2 class="col-12 text-center tm-section-title" style="font-family:Helvetica Neue ">Bienvenido a la Colpa, donde puedes hacer tus pedidos al instante</h2>
+    <div style="background-color:black;padding: 5px">
+        <h2 class="col-12 text-center tm-section-title" style="font-family: 'Kaushan Script', cursive;color: whitesmoke ">Bienvenido a la Colpa, donde puedes hacer tus pedidos al instante</h2>
     </div>
     <main>
         <div class="tm-paging-links">
@@ -57,7 +57,7 @@
         <button  style="margin-left:50px;border-radius: 10px;border: 0;background-color: #0c85d0;text-decoration: none;cursor: pointer;padding: 15px 30px 15px 30px;margin-bottom: 20px" onclick="apenCarrito()">CONFIRMAR PEDIDO</button>
         <div class="row">
             <?php $__currentLoopData = $platos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $plato): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <article class="col-md-4  tm-gallery-item " style="height:100%;margin-bottom: 20px;">
+                <article class="col-md-3  tm-gallery-item " style="height:100%;margin-bottom: 20px;">
                     <figure style="border: 1px #0ba1b5 solid;background-color: #D4EFDF;border-radius: 10px;padding-bottom: 10px">
                         <img src="<?php echo e($plato->imagen); ?>" alt="Image" class="img-fluid tm-gallery-img" />
                         <figcaption style="text-align: center">
@@ -81,7 +81,8 @@
             | Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
     </footer>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <?php echo $__env->make('web.create_modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('web.create', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <input type="hidden" id="platos" value="<?php echo e(json_encode($platos)); ?>">
 </div>
 <script src="<?php echo e(asset('web/js/jquery.min.js')); ?>"></script>
 <script src="<?php echo e(asset('web/js/parallax.min.js')); ?>"></script>
@@ -107,7 +108,21 @@
         cajaCantidad.style.display = 'block';
     }
     function apenCarrito() {
-        $('#carrito-compras').modal('show');
+        let cantidadPlatos = JSON.parse(document.getElementById('platos').value);
+        let tabla = document.getElementById('cuerpo-resumen');
+        let htmlHr = '';
+        cantidadPlatos.forEach(function (data) {
+            let cajaCantidad = document.getElementById('cajaCantidad' + data.id).value;
+            if(cajaCantidad > 0 && cajaCantidad != "" && cajaCantidad != null){
+                htmlHr += "<tr><td>"+data.nombre+"</td><td>"+data.precio+"</td><td>"+cajaCantidad+"</td><td>"+ (cajaCantidad *data.precio) +"</td></tr>";
+            }
+        });
+        tabla.innerHTML =  htmlHr;
+        $('#modalcliente').modal('show');
+    }
+    function  continuarPedido(){
+        $('#modalcliente').modal('hide');
+        alert('EL PEDIDO FUE ENVIADO CORRECTAMENTE ...')
     }
 
 </script>
