@@ -10,6 +10,7 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\PlatosController;
 use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\ConfiController;
 
 
 
@@ -25,9 +26,10 @@ use App\Http\Controllers\ReporteController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+Route::get('/', [ConfiController::class, 'inicio'])->name('inicio');
 Route::get('inicio', [InicioController::class, 'inicio'])->name('inicio');
 
 Route::get('register', [AuthController::class, 'register'])->name('register');
