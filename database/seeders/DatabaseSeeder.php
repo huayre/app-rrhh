@@ -22,15 +22,15 @@ class DatabaseSeeder extends Seeder
         //1
         $this->call(
         [
-            MoneySeeder::class
-//            AreaSeeder::class,
-//            UserSeeder::class,
-//            PlatoSeeder::class,
- //             PedidoPlatoSeeder::class
+          //  MoneySeeder::class
+           AreaSeeder::class,
+         UserSeeder::class,
+                     PlatoSeeder::class,
+              PedidoPlatoSeeder::class
         ]);
-        //Persona::factory()->count(1000)->create();
-        //Pedido::factory()->count(3000)->create();
-        //2
+        Persona::factory()->count(1000)->create();
+        Pedido::factory()->count(3000)->create();
+        
 
     }
 }
