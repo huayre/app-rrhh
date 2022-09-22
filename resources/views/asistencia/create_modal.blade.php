@@ -10,9 +10,11 @@
             <div class="modal-body">
                <form id="formulario_empleado" method="post" action="{{route('asistencia.create')}}">
                    @csrf
+                   <div class="bg-primary text-center">
                    <label>Dia</label>
                    <input type="date" class="text-center form-control form-control-sm border-primary" name="dia">
-                   <div class="table table-responsive">
+                   </div>
+                   <div class="table table-responsive" style="max-height: 500px; overflow-y: auto;">
                        <table class="table table-sm">
                            <tbody>
                            @foreach($empleados as $empleado)

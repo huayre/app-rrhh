@@ -11,4 +11,9 @@ class Asistencia extends Model
     protected $fillable = [
         'dia'
     ];
+
+    public function personas()
+    {
+        return $this->belongsToMany(Persona::class);
+    }
 }

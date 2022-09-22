@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Area;
 use App\Models\Persona;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -27,14 +28,14 @@ class PersonaFactory extends Factory
             'num_dni' => rand(10000000, 9999999),
             'direccion' => $this->faker->address,
             'num_celular' => rand(100000000, 99999999),
-            'correo' => $this->faker->email,
+            'correo' => $this->faker->unique()->email,
             'url_linkedin' => $this->faker->name . 'linkedin.com',
             'url_copia_dni' => '',
             'salario' => rand(930, 8000),
-            'fecha_nacimiento' => date('Y-m-d'),
+            'fecha_nacimiento' => "1998-10-05",
             'avatar' => '',
-            'tipo_persona' => 3,
-            'area_id' => rand(1, 7),
+            'tipo_persona' => 1,
+            'area_id' => Area::all()->random()->id,
         ];
     }
 }

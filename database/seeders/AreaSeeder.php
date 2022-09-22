@@ -14,42 +14,42 @@ class AreaSeeder extends Seeder
      */
     public function run()
     {
-       $areas =  [
-                    [
-                      'nombre' => 'VENTAS',
-                      'descripcion' => 'Area del éxito de la empresa xd hh'
-                    ],
-                    [
-                        'nombre' => 'COMPRAS',
-                        'descripcion' => 'Area del éxito de la empresa xd'
-                    ],
-                    [
-                        'nombre' => 'COCINA',
-                        'descripcion' => 'Area del éxito de la empresa xd'
-                    ],
-                    [
-                        'nombre' => 'ATENCIÓN',
-                        'descripcion' => 'Area del éxito de la empresa xd'
-                    ],
-                    [
-                        'nombre' => 'RECURSO HUMANOS',
-                        'descripcion' => 'Area del éxito de la empresa xd'
-                    ],
-                    [
-                        'nombre' => 'LIMPIEZA',
-                        'descripcion' => 'Area del éxito de la empresa xd'
-                    ],
-                    [
-                        'nombre' => 'ADMINISTRACIÓN',
-                        'descripcion' => 'Area del éxito de la empresa xd'
-                    ]
-          ];
+        $areas =
+            [
+                [
+                    'nombre' => 'VENTAS',
+                    'descripcion' => 'Área de ventas'
+                ],
+                [
+                    'nombre' => 'COMPRAS',
+                    'descripcion' => 'Área de compras'
+                ],
+                [
+                    'nombre' => 'COCINA',
+                    'descripcion' => 'Área de cocina'
+                ],
+                [
+                    'nombre' => 'ATENCIÓN',
+                    'descripcion' => 'Área de atencion'
+                ],
+                [
+                    'nombre' => 'RECURSO HUMANOS',
+                    'descripcion' => 'Area de recursos humanos'
+                ],
+                [
+                    'nombre' => 'LIMPIEZA',
+                    'descripcion' => 'Area de limpieza'
+                ],
+                [
+                    'nombre' => 'ADMINISTRACIÓN',
+                    'descripcion' => 'Area de administración'
+                ]
+            ];
 
-       foreach ($areas as $area) {
-           Area::create([
-               'nombre' => $area['nombre'],
-               'descripcion' => $area['descripcion'],
-           ]);
-       }
+        Area::upsert(
+            $areas,
+            ['nombre'],
+            ['descripcion']
+        );
     }
 }

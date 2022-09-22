@@ -16,12 +16,14 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' =>'Ror Carlos Huayre Bujaico',
-            'email' => 'huayre@gmail.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('123456789'), // password
-            'remember_token' => Str::random(10),
-        ]);
+        User::create(
+            [
+                'name' => 'Ror Carlos Huayre Bujaico',
+                'email' => 'huayre@gmail.com',
+                'email_verified_at' => now(),
+                'password' => Hash::make('123456789'), // password
+                'remember_token' => Str::random(10),
+            ]
+        );
     }
 }

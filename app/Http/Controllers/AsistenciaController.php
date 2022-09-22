@@ -9,41 +9,45 @@ use Illuminate\Http\Request;
 
 class AsistenciaController extends Controller
 {
-    public  function listaAsistencia(){
+    public  function listaAsistencia()
+    {
         $asistencia = Asistencia::all();
-        $empleados = Persona::where('tipo_persona',1)->get();
+        $empleados = Persona::where('tipo_persona', 1)->get();
         return view('asistencia.index')->with(
-            ['asistencia'=>$asistencia,
-            'empleados'=>$empleados]
+            [
+                'asistencia' => $asistencia,
+                'empleados' => $empleados
+            ]
         );
     }
 
-    public function crearAsistencia(Request $request){
+    public function crearAsistencia(Request $request)
+    {
+        if (!isset($request->check) || !isset($request->dia)) {
+            return back();
+        }
         $asistencia = Asistencia::create([
             'dia' => isset($request->dia) ? $request->dia : date('Y-m-d')
         ]);
-        $total = count($request->check);
-        for ($i=0;$i<$total;$i++) {
-            AsistenciaPersona::create([
-                'persona_id'=>$request->check[$i],
-                'asistencia_id'=>$asistencia->id,
-            ]);
+        foreach ($request->check as $value) {
+            $asistencia->personas()->attach($value);
         }
 
         return redirect()->route('reporte');
-
     }
-    public function reporteAsistencia(){
-        $asistencias = Asistencia::all();
-        $empleados = Persona::where('tipo_persona',1)->get();
-        $asistenciaPersona = AsistenciaPersona::all();
-        return view('asistencia.reporte')->with(
+    public function reporteAsistencia()
+    {
+        $data = [];
+        $asistencias = Asistencia::with(
             [
-                'asistencia'=>$asistencias,
-                'asistencia1'=>$asistencias,
-                'empleados'=>$empleados,
-                'asistenciaPersona'=>$asistenciaPersona
+                'personas' => function ($query) {
+                    $query->select('personas.id', 'personas.nombre', 'personas.apellido');
+                }
             ]
-        );
+        )
+        ->select('asistencias.id', 'asistencias.dia')
+        ->get();
+        $listaPersonas = Persona::where('tipo_persona', 1)->get();
+        return view('asistencia.reporte')->with(['asistencias' => $asistencias , 'listaPersonas' => $listaPersonas]);
     }
 }

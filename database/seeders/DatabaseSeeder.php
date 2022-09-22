@@ -10,6 +10,7 @@ use App\Models\User;
 use Database\Factories\PersonaFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Factories\Sequence;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -19,18 +20,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //1
         $this->call(
-        [
-          //  MoneySeeder::class
-           AreaSeeder::class,
-         UserSeeder::class,
-                     PlatoSeeder::class,
-              PedidoPlatoSeeder::class
-        ]);
-        Persona::factory()->count(1000)->create();
-        Pedido::factory()->count(3000)->create();
-        
+            [
+                AreaSeeder::class,
+                UserSeeder::class,
+                EmpleadoSeeder::class,
+                AsistenciaSeeder::class
+                //            PlatoSeeder::class,
+                //             PedidoPlatoSeeder::class
+            ]
+        );
+        // Persona::factory()->count(100)->create();
+        //Pedido::factory()->count(3000)->create();
+        //2
 
     }
 }

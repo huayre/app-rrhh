@@ -28,10 +28,19 @@ class Persona extends Model
         'status_vacante'
     ];
 
+    protected $hidden = [
+        'pivot'
+    ];
+
     public function area() {
         return $this->belongsTo(Area::class);
     }
+
     public function vacante() {
         return $this->belongsTo(Vacante::class);
+    }
+    public function asistencias()
+    {
+        return $this->belongsToMany(Asistencia::class);
     }
 }

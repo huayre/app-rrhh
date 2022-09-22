@@ -27,9 +27,9 @@ use App\Http\Controllers\ConfiController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   return view('welcome');
 });
-//Route::get('/', [ConfiController::class, 'inicio'])->name('inicio');
+// Route::get('/', [ConfiController::class, 'inicio'])->name('inicio');
 Route::get('inicio', [InicioController::class, 'inicio'])->name('inicio');
 
 Route::get('register', [AuthController::class, 'register'])->name('register');
