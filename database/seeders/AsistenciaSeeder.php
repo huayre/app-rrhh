@@ -14,7 +14,7 @@ class AsistenciaSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=1; $i <= 5; $i++) { 
+        for ($i=1; $i <= 20; $i++) { 
             $dateInit = strtotime('2018-01-01');
             $dateEnd = strtotime(date('Y-m-d'));
             $asistencia = Asistencia::create([
