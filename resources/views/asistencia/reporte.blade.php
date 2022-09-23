@@ -3,10 +3,10 @@
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
-                <table class="table table-bordered table-sm" id="tabla_empleados" style="border: #1b7e5a solid 1px">
+                <table id="tabla-reposte-asistencia" class="table table-bordered table-sm"  style="border: #1b7e5a solid 1px">
                     <thead>
                         <tr  class="table-success">
-                            <th></th>
+                            <th style="width: 500px;">ASISTENCIA - FECHA</th>
                             @foreach($listaPersonas as $persona)
                                 <th>{{$persona->nombre . ' ' . $persona->apellido}}</th>
                             @endforeach
@@ -16,7 +16,7 @@
                         
                         @foreach($asistencias as $asistencia)
                             <tr>
-                                <td>{{$asistencia->dia}}</td>
+                                <td style="width: 500px;" class="table-success">{{$asistencia->dia}}</td>
                                 @foreach($listaPersonas as $persona)
                                     @php $status = false @endphp
                                     @foreach($asistencia->personas as $item)
@@ -27,11 +27,11 @@
                                     @endforeach 
                                     @if($status)
                                         <td>
-                                            <i class="fa fa-check text-success"></i>
+                                            <i class="fa fa-check" style="color: red;"></i>
                                         </td>
                                     @else
                                         <td>
-                                            <i class="fa fa-times text-danger"></i>
+                                            <i class="fa fa-times" style="color: green;"></i>
                                         </td>
                                     @endif
                                 @endforeach    
@@ -44,5 +44,5 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="{{asset('js/asistencia.js')}}"></script>
+    <script src="{{asset('js/reporte.js')}}"></script>
 @endsection

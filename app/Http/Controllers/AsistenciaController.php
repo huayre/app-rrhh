@@ -37,7 +37,6 @@ class AsistenciaController extends Controller
     }
     public function reporteAsistencia()
     {
-        $data = [];
         $asistencias = Asistencia::with(
             [
                 'personas' => function ($query) {
