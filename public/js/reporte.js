@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $('#tabla-reposte-asistencia').DataTable(
         {
+            "pageLength": 20,
             dom: 'Bfrtip',
             buttons: [
                 {

@@ -82,7 +82,7 @@
     </div>
     <div class="card caja mt-5">
         <div class="card-body">
-            <h4 class="card-title text-center">ÁREAS</h4>
+            <h4 class="card-title text-center" style="background-color: #88B8EA;">ÁREAS RECREO TURÍSTICO LA COLPA</h4>
             <div class="float-chart-container">
                 <div id="pie-chart" class="float-chart"></div>
             </div>

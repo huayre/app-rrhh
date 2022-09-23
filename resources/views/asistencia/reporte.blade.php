@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
-                <table id="tabla-reposte-asistencia" class="table table-bordered table-sm"  style="border: #1b7e5a solid 1px">
+                <table id="tabla-reposte-asistencia" class="table table-sm"  style="border-radius: 15px; border: 3px solid #03a9f3;">
                     <thead>
                         <tr  class="table-success">
                             <th style="width: 500px;">ASISTENCIA - FECHA</th>

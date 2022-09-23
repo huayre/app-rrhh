@@ -19,11 +19,6 @@
             Empleado
         </button>
     </div>
-    <div class="text-center">
-        <input type="date" class="form-control-sm" id="fechaInicio">
-        <input type="date" class="form-control-sm" id="fechaFin">
-        <button class="btn btn-success">Buscar</button>
-    </div>
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
