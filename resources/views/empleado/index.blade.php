@@ -36,7 +36,7 @@
                     <tbody>
                     @foreach($empleados as $empleado)
                         <tr>
-                            <td>{{$empleado->area->nombre}}</td>
+                            <td>{{@$empleado->area->nombre}}</td>
                             <td>{{$empleado->nombre . ' '. $empleado->apellido}}</td>
                             <td>{{$empleado->num_dni}}</td>
                             <td>{{$empleado->num_celular}}</td>
