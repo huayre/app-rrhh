@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
-                <table class="table table-bordered" id="tabla_empleados">
+                <table class="table table-bordered" id="tabla_empleados" style="border-radius: 15px; border: 3px solid #03a9f3;">
                     <thead>
                     <tr>
                         <th>Area</th>
@@ -53,8 +53,18 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div> 
+    <hr>
+    <div class="card caja">
+            <div class="card-body">
+                <h6 class="card-title mb-0">Número de personales por área</h6>
+                <div class="d-flex justify-content-between align-items-center">
+                    <canvas id="imagen-contratos-por-area"></canvas>
+                </div>
+            </div>
+        </div> 
 @endsection
 @section('scripts')
     <script src="{{asset('js/empleado.js')}}"></script>
 @endsection
+

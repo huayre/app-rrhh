@@ -1,12 +1,5 @@
 @extends('plantilla.index')
 @section('contenido')
-    <style>
-     .caja{
-         border-left: #03a9f3 solid 5px;
-         border-radius: 10px;
-         background-color:#D2E3F3
-     }
-    </style>
     <p class="text-center text-primary" style="font-size: 25px">RESUMEN GENERAL</p>
     <div class="row">
         <div class="col-md-6 ">

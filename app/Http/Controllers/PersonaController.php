@@ -12,10 +12,13 @@ class PersonaController extends Controller
 {
     public function listaEmpleados()
     {
-        $areas = Area::all('id', 'nombre');
+        $areas = Area::select(['nombre'])
+        ->withCount('personas')
+        ->get();
+
         $empleados = Persona::with('area')
             ->where('tipo_persona',1)
-            ->orderBy('created_at','desc')
+            ->orderBy('id','asc')
             ->get();
         return view('empleado.index')->with(['areas' => $areas,'empleados' => $empleados]);
     }
@@ -48,32 +51,34 @@ class PersonaController extends Controller
             $mensaje = 'errors';
             $recurso = $e->getMessage();
         }
-        return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
+        return response()->json(['mensaje' => $mensaje, 'recurso' => $recurso]);
     }
-    public  function eliminarEmpleado($id){
+    public  function eliminarEmpleado($id)
+    {
         $mensaje = 'success';
         $recurso = '';
         try {
             $empleado = Persona::find($id);
             $empleado->delete();
-
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
             $mensaje = 'errors';
             $recurso = $e->getMessage();
         }
-        return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
+        return response()->json(['mensaje' => $mensaje, 'recurso' => $recurso]);
     }
 
-    public function listarPostulante() {
+    public function listarPostulante()
+    {
         $vacantes = Vacante::all('id', 'nombre');
         $postulantes = Persona::with('vacante')
-            ->where('tipo_persona',2)
-            ->orderBy('created_at','desc')
+            ->where('tipo_persona', 2)
+            ->orderBy('created_at', 'desc')
             ->get();
-        return view('postulante.index')->with(['vacantes' => $vacantes,'postulantes' => $postulantes]);
+        return view('postulante.index')->with(['vacantes' => $vacantes, 'postulantes' => $postulantes]);
     }
 
-    public function crearPostulante(Request $request) {
+    public function crearPostulante(Request $request)
+    {
         $mensaje = 'success';
         try {
             if ($request->file('cv')) {
@@ -97,31 +102,34 @@ class PersonaController extends Controller
             $mensaje = 'errors';
             $recurso = $e->getMessage();
         }
-        return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
+        return response()->json(['mensaje' => $mensaje, 'recurso' => $recurso]);
     }
-    function aprobarPostulante($id){
+    function aprobarPostulante($id)
+    {
         $mensaje = 'success';
         $recurso = '';
         try {
             $empleado = Persona::find($id);
             $empleado->update([
-                'status_vacante' =>true
+                'status_vacante' => true,
+                'tipo_persona' => 1,
             ]);
-
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
             $mensaje = 'errors';
             $recurso = $e->getMessage();
         }
-        return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
+        return response()->json(['mensaje' => $mensaje, 'recurso' => $recurso]);
     }
- //...................
-    public function listarCliente() {
-        $clientes = Persona::orderBy('created_at','desc')
-            ->where('tipo_persona',3)->get();
+    //...................
+    public function listarCliente()
+    {
+        $clientes = Persona::orderBy('created_at', 'desc')
+            ->where('tipo_persona', 3)->get();
         return view('cliente.index')->with(['cliente' => $clientes]);
     }
 
-    public function crearCliente(Request $request) {
+    public function crearCliente(Request $request)
+    {
         $mensaje = 'success';
         try {
 
@@ -138,22 +146,22 @@ class PersonaController extends Controller
             $mensaje = 'errors';
             $recurso = $e->getMessage();
         }
-        return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
+        return response()->json(['mensaje' => $mensaje, 'recurso' => $recurso]);
     }
-    public  function eliminarCliente($id){
+    public  function eliminarCliente($id)
+    {
         $mensaje = 'success';
         $recurso = '';
         try {
             $cliente = Persona::find($id);
             $cliente->delete();
-
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
             $mensaje = 'errors';
             $recurso = $e->getMessage();
         }
-        return response()->json(['mensaje' => $mensaje,'recurso'=>$recurso]);
+        return response()->json(['mensaje' => $mensaje, 'recurso' => $recurso]);
     }
     // pedidos
-  
-  
+
+
 }

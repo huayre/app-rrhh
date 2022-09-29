@@ -12,4 +12,9 @@ class Area extends Model
         'nombre',
         'descripcion'
     ];
+
+    public function personas() 
+    {
+        return $this->hasMany(Persona::class);
+    }
 }

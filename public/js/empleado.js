@@ -1,4 +1,33 @@
 $(document).ready(function () {
+    const labels = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+      ];
+    
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: 'My First dataset',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: [0, 10, 5, 2, 20, 30, 45],
+        }]
+      };
+    
+      const config = {
+        type: 'line',
+        data: data,
+        options: {}
+      };
+
+      new Chart(
+        document.getElementById('nivel-de-asistencia'),
+        config
+      );
     $('#tabla_empleados').DataTable(
         {
             dom: 'Bfrtip',
@@ -58,7 +87,7 @@ function validarDatosCliente() {
     let area_id = document.getElementById('area_id').value;
 
     if (nombre == '') {
-        botonCrearClienteMensaje.innerText = 'INGRESE EL NOMBRE';
+        botonCrearClienteMensaje.innerText = 'INGRESE EL NOMBRE jjj';
         botonCrearClienteMensaje.style.background = 'red';
     } else if (apellido == '') {
         botonCrearClienteMensaje.innerText = 'INGRESE EL APELLIDO';

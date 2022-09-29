@@ -31,6 +31,11 @@
         .nav-link-hover:hover{
             border-left: #03a9f3 solid 4px;
         }
+        .caja{
+            border-left: #03a9f3 solid 5px;
+            border-radius: 10px;
+            background-color:#D2E3F3
+        }
     </style>
 </head>
 <body>
@@ -426,7 +431,7 @@
                             </ul>
                         </div>
                     </li>
-                    <!-- <li class="nav-item d-none d-lg-block">
+                    <li class="nav-item d-none d-lg-block">
                         <a class="nav-link nav-link-hover" data-toggle="collapse" href="#sidebar-convocatorias" aria-expanded="false" aria-controls="sidebar-layouts">
                             <i class="icon-speech menu-icon text-primary"></i>
                             <span class="menu-title">CONVOCATORIAS</span>
@@ -437,7 +442,7 @@
                                 <li class="nav-item"> <a class="nav-link" href="{{route('vacante')}}">VACANTES</a></li>
                             </ul>
                         </div>
-                    </li> -->
+                    </li>
                     <li class="nav-item d-none d-lg-block">
                         <a class="nav-link nav-link-hover" data-toggle="collapse" href="#sidebar-nomina" aria-expanded="false" aria-controls="sidebar-layouts">
                             <i class="icon-folder text-primary menu-icon"></i>

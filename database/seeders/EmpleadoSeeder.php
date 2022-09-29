@@ -14,6 +14,6 @@ class EmpleadoSeeder extends Seeder
      */
     public function run()
     {
-        Persona::factory()->count(100)->create();
+        Persona::factory()->count(10)->create();
     }
 }
