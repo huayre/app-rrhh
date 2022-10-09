@@ -16,13 +16,13 @@
                         <label>Apellido:</label>
                         <input type="text" class="form-control border-primary" name="apellido" id="apellido">
                         <label>Nro. DNI:</label>
-                        <input type="text" class="form-control border-primary" name="num_dni" id="num_dni">
+                        <input type="text" class="form-control border-primary" name="num_dni" id="num_dni" maxlength="8">
                         <label>Dirección:</label>
                         <input type="text" class="form-control border-primary" name="direccion" id="direccion">
                     </div>
                     <div class="col-md-6">
                         <label>Celular:</label>
-                        <input type="text" class="form-control border-primary" name="num_celular" id="num_celular">
+                        <input type="text" class="form-control border-primary" name="num_celular" id="num_celular" maxlength="9">
                         <label>Correo:</label>
                         <input type="email" class="form-control border-primary" name="correo" id="correo">
                         <label>Vacante:</label>
