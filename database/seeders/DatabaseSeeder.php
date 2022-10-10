@@ -7,6 +7,7 @@ use App\Models\PedidoPlato;
 use App\Models\Persona;
 use App\Models\Plato;
 use App\Models\User;
+use App\Models\Vacante;
 use Database\Factories\PersonaFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Factories\Sequence;
@@ -22,17 +23,18 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(
             [
-                AreaSeeder::class,
-                UserSeeder::class,
-                EmpleadoSeeder::class,
+                // AreaSeeder::class,
+                // AreaSeeder::class,
+                // UserSeeder::class,
+                // EmpleadoSeeder::class,
                 AsistenciaSeeder::class
                 //            PlatoSeeder::class,
                 //             PedidoPlatoSeeder::class
             ]
         );
-        // Persona::factory()->count(100)->create();
+        // Persona::factory()->count(50)->create();
+        // Vacante::factory()->count(20)->create();
         //Pedido::factory()->count(3000)->create();
-        //2
 
     }
 }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>Colpa | Trabjo</title>
+    <title>Colpa | Trabajo</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
     <link href="{{asset('web/css/templatemo-style.css')}}" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">

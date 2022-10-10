@@ -47,6 +47,15 @@
         <div class="card-body">
             <h6 class="card-title mb-0">NIVEL DE ASISTENCIA 2018 - 2022</h6>
             <div class="d-flex justify-content-between align-items-center">
+                <canvas id="nivel-de-asistencia-por-area"></canvas>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card caja">
+        <div class="card-body">
+            <h6 class="card-title mb-0">NIVEL DE ASISTENCIA 2018 - 2022 POR ÁREA</h6>
+            <div class="d-flex justify-content-between align-items-center">
                 <canvas id="nivel-de-asistencia"></canvas>
             </div>
         </div>
@@ -72,24 +81,60 @@
 <script>
         const labels = [
         'Enero 2018',
-        'Marzo 2018',
-        'Octubre 2018',
-        'Abril 2019',
-        'Agosto 2019',
-        'Setiembre 2019',
-        'Mayo 2020',
-        'Diciembre 2020',
-        'Mayo 2021',
+        'junio 2018',
+        'enero 2019',
+        'junio 2019',
+        'enero 2020',
+        'junio 2020',
+        'enero 2021',
+        'junio 2021',
+        'enero 2022',
         'Junio 2022',
       ];
     
       const data = {
         labels: labels,
         datasets: [{
-          label: 'My First dataset',
+          label: 'VENTAS',
           backgroundColor: 'rgb(255, 99, 132)',
           borderColor: 'rgb(255, 99, 132)',
           data: [90, 50, 40, 50, 70, 45, 70, 100, 50, 60],
+        },
+        {
+          label: 'COMPRAS',
+          backgroundColor: 'rgb(100, 225, 87)',
+          borderColor: 'rgb(100, 225, 87)',
+          data: [50, 50, 30, 60, 70, 40, 60, 100, 40, 60],
+        },
+        {
+          label: 'COCINA',
+          backgroundColor: 'rgb(42, 231, 180)',
+          borderColor: 'rgb(42, 231, 180)',
+          data: [10, 50, 30, 20, 20, 35, 20, 90, 40, 30],
+        },
+        {
+          label: 'ATENCIÓN',
+          backgroundColor: 'rgb(231, 50, 42)',
+          borderColor: 'rgb(231, 50, 42)',
+          data: [40, 40, 40, 20, 60, 85, 90, 100, 30, 60],
+        },
+        {
+          label: 'RECURSO HUMANOS',
+          backgroundColor: 'rgb(93, 42, 231)',
+          borderColor: 'rgb(93, 42, 231)',
+          data: [30, 80, 50, 50, 50, 55, 90, 100, 40, 10],
+        },
+        {
+          label: 'LIMPIEZA',
+          backgroundColor: 'rgb(243, 23, 171)',
+          borderColor: 'rgb(243, 23, 171)',
+          data: [100, 90, 80, 100, 90, 90, 100, 80, 90, 100],
+        },
+        {
+          label: 'ADMINISTRACIÓN',
+          backgroundColor: 'rgb(3, 5, 5)',
+          borderColor: 'rgb(3, 5, 5)',
+          data: [10, 10, 10, 10, 20, 20, 20, 10, 5, 10],
         }]
       };
     
@@ -102,6 +147,46 @@
     new Chart(
         document.getElementById('nivel-de-asistencia'),
         config
+      );
+
+      const labels_1 = [
+        'Enero 2018',
+        'Marzo 2018',
+        'Octubre 2018',
+        'Abril 2019',
+        'Agosto 2019',
+        'Setiembre 2019',
+        'Mayo 2020',
+        'Diciembre 2020',
+        'Mayo 2021',
+        'Junio 2022',
+      ];
+    
+      const data_1 = {
+        labels: labels_1,
+        datasets: [{
+            label: 'Asistencia General',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [90, 50, 40, 50, 70, 45, 70, 100, 50, 60],
+            pointStyle: 'circle',
+            pointRadius: 10,
+            pointHoverRadius: 15,
+            fill: false,
+            cubicInterpolationMode: 'monotone',
+            tension: 0.4
+        }]
+      };
+    
+      const config_1 = {
+        type: 'line',
+        data: data_1,
+        options: {}
+      };
+
+    new Chart(
+        document.getElementById('nivel-de-asistencia-por-area'),
+        config_1
       );
 
   /////
