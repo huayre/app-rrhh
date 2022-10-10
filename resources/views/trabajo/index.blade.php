@@ -15,6 +15,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 @include('trabajo.create_modal')
@@ -39,12 +42,12 @@
     <div class="container-fluid" style="margin-top: 5px;">
         <div class="row" style="justify-content: center; ">
             @foreach($vacantes as $vacante)
-                <div class="card" style="background-color: #E59178; margin : 8px; width: 250px; border-radius: 20px;">
+                <div class="card" style="background-color: #F8DAA2; margin : 8px; width: 250px; border-radius: 20px;padding: 5px;font-family: 'Open Sans', sans-serif;">
                     <img src="{{asset('imagenes/mujer-home-office-1.png')}}" style="padding: 2px; margin-top: 10px;">
                     <div class="card-body">
                         <h5 class="card-title">{{$vacante->nombre }}</h5>
                         <p class="card-text">{{$vacante->requisitos}}</p>
-                        <a onclick="abrirModalEmpleado('{{$vacante}}')" class="btn btn-primary">Inscribirse</a>
+                        <button onclick="abrirModalEmpleado('{{$vacante}}')"  style="border-radius: 10px;cursor: pointer; width: 100%;border: none; background-color: black; padding: 7px; color: white;">POSTULAR</button>
                     </div>
                 </div>
             @endforeach
