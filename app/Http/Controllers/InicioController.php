@@ -15,8 +15,8 @@ class InicioController extends Controller
         $empleados = Persona::where('tipo_persona', 1)->limit(5)->get();
         $numeroPostulantes = Persona::where('tipo_persona', 2)->count();
         $areas = Area::all('nombre');
-        $vacantes = Vacante::all('nombre');
-        $vacantes = Vacante::withCount('postulantes')->get();
+        // $vacantes = Vacante::all('nombre');
+        $vacantes = Vacante::withCount('postulantes')->limit(5)->get();
         return view('inicio')->with(
             [
                 'numeroEmpleados' => $numeroEmpleados,

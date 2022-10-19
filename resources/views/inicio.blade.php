@@ -1,5 +1,11 @@
 @extends('plantilla.index')
 @section('contenido')
+    <p style="font-size: 20px">PORTAL DE TRABAJO :</p>
+    <div class="card-body" style="text-align: center;">
+        <div style="border: 3px dashed #AEF5EE; padding: 20px; display: inline;text-align: center;">
+            <a href="https://apprecursoshumanos.herokuapp.com/chamba" target="_blank">https://apprecursoshumanos.herokuapp.com/chamba</a>
+        </div>
+    </div>
     <p class="text-center text-primary" style="font-size: 25px">RESUMEN GENERAL</p>
     <div class="row">
         <div class="col-md-6 ">
@@ -55,7 +61,7 @@
         <div class="col-md-6">
             <div class="card caja mt-5">
                 <div class="card-body">
-                    <h4 class="card-title">CONVOCATORIAS</h4>
+                    <h4 class="card-title">POSTULANTES  HOY</h4>
                     <div class="float-chart-container">
                         <div id="column-chart" class="float-chart"></div>
                     </div>
@@ -65,7 +71,7 @@
         <div class="col-md-6">
             <div class="card caja mt-5">
                 <div class="card-body">
-                    <h4 class="card-title">PERSONALES PUNTUALES</h4>
+                    <h4 class="card-title">PERSONALES PUNTUALES ÚLTIMO MES</h4>
                     <div class="float-chart-container">
                         <div id="column-chart1" class="float-chart"></div>
                     </div>

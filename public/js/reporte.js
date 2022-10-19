@@ -2,6 +2,7 @@ $(document).ready(function () {
     $('#tabla-reposte-asistencia').DataTable(
         {
             "pageLength": 20,
+            "ordering": false,
             dom: 'Bfrtip',
             buttons: [
                 {

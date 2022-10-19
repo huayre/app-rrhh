@@ -27,11 +27,11 @@
                                     @endforeach 
                                     @if($status)
                                         <td>
-                                            <i class="fa fa-check" style="color: red;"></i>
+                                            <i class="fa fa-check" style="color: green;"></i>
                                         </td>
                                     @else
                                         <td>
-                                            <i class="fa fa-times" style="color: green;"></i>
+                                            <i class="fa fa-times" style="color: red;"></i>
                                         </td>
                                     @endif
                                 @endforeach    

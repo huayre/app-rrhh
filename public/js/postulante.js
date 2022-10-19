@@ -2,6 +2,7 @@ $(document).ready(function () {
     $('#tabla_empleados').DataTable(
         {
             dom: 'Bfrtip',
+            "ordering": false,
             buttons: [
                 {
                     extend:    'copyHtml5',

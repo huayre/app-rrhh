@@ -18,7 +18,7 @@ class PersonaController extends Controller
 
         $empleados = Persona::with('area')
             ->where('tipo_persona',1)
-            ->orderBy('id','asc')
+            ->orderBy('created_at','desc')
             ->get();
         return view('empleado.index')->with(['areas' => $areas,'empleados' => $empleados]);
     }
@@ -110,9 +110,11 @@ class PersonaController extends Controller
         $recurso = '';
         try {
             $empleado = Persona::find($id);
+            $vacanteId = Vacante::find($empleado->vacante_id);
             $empleado->update([
                 'status_vacante' => true,
                 'tipo_persona' => 1,
+                'area_id' => $vacanteId->id
             ]);
         } catch (\Exception $e) {
             $mensaje = 'errors';

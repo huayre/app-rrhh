@@ -45,7 +45,7 @@ class AsistenciaController extends Controller
             ]
         )
         ->select('asistencias.id', 'asistencias.dia')
-        ->orderBy('asistencias.dia','asc')
+        ->orderBy('asistencias.dia','desc')
         ->limit(50)->get();
         $listaPersonas = Persona::where('tipo_persona', 1)->get();
         return view('asistencia.reporte')->with(['asistencias' => $asistencias , 'listaPersonas' => $listaPersonas]);
