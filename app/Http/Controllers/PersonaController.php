@@ -114,7 +114,7 @@ class PersonaController extends Controller
             $empleado->update([
                 'status_vacante' => true,
                 'tipo_persona' => 1,
-                'area_id' => $vacanteId->id
+                'area_id' => $vacanteId->area_id
             ]);
         } catch (\Exception $e) {
             $mensaje = 'errors';
