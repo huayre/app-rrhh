@@ -22,7 +22,7 @@ class PedidoFactory extends Factory
     public function definition()
     {
         return [
-            'persona_id' =>rand(1,1000),
+            'persona_id' =>rand(1,20),
             'monto'=>rand(10,200),
             'hora_entrega'=> date('Y-m-d H:i:s')
         ];

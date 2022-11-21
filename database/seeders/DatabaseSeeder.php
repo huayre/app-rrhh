@@ -27,14 +27,14 @@ class DatabaseSeeder extends Seeder
                 // AreaSeeder::class,
                 // UserSeeder::class,
                 // EmpleadoSeeder::class,
-                AsistenciaSeeder::class
-                //            PlatoSeeder::class,
-                //             PedidoPlatoSeeder::class
+                // AsistenciaSeeder::class
+                        //    PlatoSeeder::class,
+                            PedidoPlatoSeeder::class
             ]
         );
-        // Persona::factory()->count(50)->create();
+        // Persona::factory()->count(18)->create();
         // Vacante::factory()->count(20)->create();
-        //Pedido::factory()->count(3000)->create();
+        // Pedido::factory()->count(50)->create();
 
     }
 }

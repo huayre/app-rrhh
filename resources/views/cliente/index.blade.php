@@ -32,7 +32,7 @@
                     <tr>
                         
                         <th>Nombres</th>
-                        <th>Apellidos</th>
+                        <th>dirección</th>
                         <th>Nro. Celular</th>
                         <th>Referencias</th>
                        

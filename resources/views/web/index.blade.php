@@ -59,7 +59,7 @@
             @foreach($platos as $plato)
                 <article class="col-md-3  tm-gallery-item " style="height:100%;margin-bottom: 20px;">
                     <figure style="border: 1px #0ba1b5 solid;background-color: #D4EFDF;border-radius: 10px;padding-bottom: 10px">
-                        <img src="{{$plato->imagen}}" alt="Image" class="img-fluid tm-gallery-img" />
+                        <img src="{{asset('imagenes/platanos.jpeg')}}" alt="Image" class="img-fluid tm-gallery-img" />
                         <figcaption style="text-align: center">
                             <h4 class="tm-gallery-title">{{$plato->nombre}}</h4>
                             <p class="tm-gallery-description">{{$plato->descripcion}}</p>
