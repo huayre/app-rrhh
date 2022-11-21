@@ -57,7 +57,7 @@
             const labels = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
             array = [];
             for (let i=0;i<=10;i++) {
-                array.push(getRandomArbitrary(8000, 20000))
+                array.push(getRandomArbitrary(20, 300))
             }
             const data = {
                 labels: labels,
